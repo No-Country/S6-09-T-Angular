@@ -1,7 +1,7 @@
 <h1 align = "center">📚 Classemøte 🖥️</h1>
 Un proyecto del equipo:  S6-09-T-ANGULAR.
 
-## Breve descripción del proyecto
+## Breve descripción del proyecto 📜
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
