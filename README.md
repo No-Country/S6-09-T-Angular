@@ -11,7 +11,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 * Diseño UX: Figma.
 * Testing: .
 
-### Integrantes 👩🏻‍💻👨🏽‍💻🌟
+### Integrantes 👩🏻‍💻👨🏽‍💻
 * QA Tester: Fausto Centurión.
 * Diseñador UX/UI: Gerardo Vargas.
 * Desarrollador front-end: Alejandro Serna.
