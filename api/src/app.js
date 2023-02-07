@@ -1,4 +1,5 @@
 import * as dotenv from "dotenv";
+dotenv.config();
 import express, { json } from "express";
 const app = express();
 const port = 3000;
@@ -8,18 +9,21 @@ import { Stream } from "stream";
 import routerApi from "./route/index.js";
 const server = http.createServer(app);
 const io = new SocketIO(server);
-import {coneccionSocket} from "../src/socket/socket.js"
+import { coneccionSocket } from "../src/socket/socket.js";
+import db from "./config/db.js";
+
 //configuracion de archivos staticos
 app.use(express.static("./src/public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-dotenv.config();
+
 //Configuracion de cors
 
 //rutas de la api
 routerApi(app);
 //conecciones
-coneccionSocket(io,app)
+
+coneccionSocket(io, app);
 server.listen(port, () => {
   console.log("server corriendo en " + port);
 });
