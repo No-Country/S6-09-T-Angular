@@ -1,5 +1,4 @@
 import * as dotenv from "dotenv";
-dotenv.config();
 import express, { json } from "express";
 const app = express();
 const port = 3000;
@@ -12,7 +11,9 @@ const io = new SocketIO(server);
 import { coneccionSocket } from "../src/socket/socket.js";
 import connectdb from "./config/db.js";
 
+const users=require('./route/usersRoute')
 
+dotenv.config();
 //configuracion de archivos staticos
 app.use(express.static("./src/public"));
 app.use(express.urlencoded({ extended: true }));
@@ -22,6 +23,7 @@ app.use(express.json());
 
 //rutas de la api
 routerApi(app);
+app.use('/users',users);
 //conecciones
 
 coneccionSocket(io, app);
