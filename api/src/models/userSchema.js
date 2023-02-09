@@ -1,7 +1,6 @@
 import mongoose from "mongoose"
-import dotenv from "dotenv"
-import passportLocalMongoose from "passport-local-mongoose"
-dotenv.config()
+//import passportLocalMongoose from "passport-local-mongoose"
+
 
 const userSchema = mongoose.Schema({
   name: {
@@ -22,5 +21,5 @@ const userSchema = mongoose.Schema({
   }
 })
 
-userSchema.plugin(passportLocalMongoose)
+//userSchema.plugin(passportLocalMongoose)
 export default mongoose.model("user", userSchema)
