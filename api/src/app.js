@@ -10,7 +10,8 @@ import routerApi from "./route/index.js";
 const server = http.createServer(app);
 const io = new SocketIO(server);
 import { coneccionSocket } from "../src/socket/socket.js";
-import db from "./config/db.js";
+import connectdb from "./config/db.js";
+connectdb()
 
 //configuracion de archivos staticos
 app.use(express.static("./src/public"));
@@ -25,5 +26,5 @@ routerApi(app);
 
 coneccionSocket(io, app);
 server.listen(port, () => {
-  console.log("server corriendo en " + port);
+  console.log("Server corriendo en " + port);
 });

@@ -1,0 +1,15 @@
+### post a new user
+POST http://localhost:3000/classroom/classroom HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "user_id": "464646",
+  "classroom_name": "artes"
+}
+
+### get all user classrooms
+GET http://localhost:3000/classroom/classroom/454545 HTTP/1.1
+
+### get all classrooms
+GET http://localhost:3000/classroom/classroom/all HTTP/1.1
