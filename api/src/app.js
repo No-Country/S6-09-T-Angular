@@ -10,7 +10,6 @@ import routerApi from "./route/index.js";
 const server = http.createServer(app);
 const io = new SocketIO(server);
 import { coneccionSocket } from "../src/socket/socket.js";
-
 import connectdb from "./config/db.js";
 connectdb()
 
