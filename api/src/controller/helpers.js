@@ -9,4 +9,4 @@ function builParams(validParams, body) {
     return params;
 }
 
-module.exports = { builParams };
+export default {builParams };

@@ -11,7 +11,7 @@ const io = new SocketIO(server);
 import { coneccionSocket } from "../src/socket/socket.js";
 import connectdb from "./config/db.js";
 
-const users=require('./route/usersRoute')
+import users from './route/usersRoute.js';
 
 dotenv.config();
 //configuracion de archivos staticos
@@ -23,7 +23,7 @@ app.use(express.json());
 
 //rutas de la api
 routerApi(app);
-app.use('/users',users);
+app.use('/users', users);
 //conecciones
 
 coneccionSocket(io, app);

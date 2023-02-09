@@ -1,7 +1,7 @@
 import mongoose from "mongoose"
 import dotenv from "dotenv"
 import passportLocalMongoose from "passport-local-mongoose"
-const mongooseBcrypt = require('mongoose-bcrypt');
+import mongooseBcrypt from 'mongoose-bcrypt';
 
 dotenv.config()
 

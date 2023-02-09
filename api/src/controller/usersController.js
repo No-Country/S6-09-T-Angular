@@ -1,5 +1,5 @@
-const User = require('../models/userSchema');
-const buildParams=require('./helpers').builParams;
+import User from '../models/userSchema.js';
+import buildParams from './helpers.js';
 
 
 const validParams=['name','email', 'password'];
@@ -14,4 +14,5 @@ function create(req,res){
     });
 }
 
-module.exports={create}
+//module.exports={create}
+export default create;
