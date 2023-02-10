@@ -1,6 +1,5 @@
 import classSchema from "../models/classSchema.js";
 
-
 const createClassRoom = async (req, res) => {
   try {
     const user = classSchema(req.body);
