@@ -11,14 +11,14 @@ app.use(bodyParser.json())
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.use(
-    session({
-        secret: process.env.DB_CONNECTION,
-        resave: true,
-        saveUninitialized: true,
-        cookie: { secure: false },
-    })
-)
+// app.use(
+//     session({
+//         secret: process.env.DB_CONNECTION,
+//         resave: true,
+//         saveUninitialized: true,
+//         cookie: { secure: false },
+//     })
+// )
 
 // Create new classroom
 app.post("/classroom", async (req, res) => {
