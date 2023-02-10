@@ -4,6 +4,7 @@ let input = document.getElementById("mensaje");
 let nombre = document.getElementById("nombre");
 let ul = document.querySelector("ul");
 //recibe el mensaje
+
 socket.on("mensaje", (user) => {
   console.log(user);
   ul.innerHTML += ` <h3>${user.nombre}: ${user.msg}<h3/>`;

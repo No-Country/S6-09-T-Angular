@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
 import dotenv from "dotenv"
-import passportLocalMongoose from "passport-local-mongoose"
+//import passportLocalMongoose from "passport-local-mongoose"
 dotenv.config()
 
 const classSchema = mongoose.Schema({ 
@@ -26,5 +26,5 @@ const classSchema = mongoose.Schema({
   }
 })
 
-classSchema.plugin(passportLocalMongoose)
+//classSchema.plugin(passportLocalMongoose)
 export default mongoose.model("classSchema", classSchema)

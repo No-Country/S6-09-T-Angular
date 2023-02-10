@@ -1,9 +1,5 @@
 import mongoose from "mongoose"
-import dotenv from "dotenv"
-import passportLocalMongoose from "passport-local-mongoose"
-import mongooseBcrypt from 'mongoose-bcrypt';
-
-dotenv.config()
+//import passportLocalMongoose from "passport-local-mongoose"
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -20,6 +16,6 @@ const userSchema = new mongoose.Schema({
   }
 })
 
-userSchema.plugin(passportLocalMongoose)
+//userSchema.plugin(passportLocalMongoose)
 userSchema.plugin(mongooseBcrypt); //Agregará un campo encriptado de nombre "password" [a la BD] y además una serie de mètodos.
 export default mongoose.model("user", userSchema);
