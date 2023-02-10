@@ -23,7 +23,6 @@ app.use(express.json());
 
 //rutas de la api
 routerApi(app);
-app.use('/users', users);
 //conecciones
 
 coneccionSocket(io, app);
