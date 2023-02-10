@@ -1,5 +1,5 @@
 ### post a new user
-POST http://localhost:3000/classroom/classroom HTTP/1.1
+POST http://localhost:3000/classroom HTTP/1.1
 Accept: application/json
 Content-Type: application/json
 
@@ -12,4 +12,4 @@ Content-Type: application/json
 GET http://localhost:3000/classroom/classroom/454545 HTTP/1.1
 
 ### get all classrooms
-GET http://localhost:3000/classroom/classroom/all HTTP/1.1
+GET http://localhost:3000/classroom/all HTTP/1.1
