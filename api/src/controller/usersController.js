@@ -1,18 +1,18 @@
-import User from '../models/userSchema.js';
-import buildParams from './helpers.js';
-
+import userSchema from '../models/userSchema.js';
+import { buildParams } from './helpers.js';
 
 const validParams = ['name', 'email', 'password'];
-//1ero probaré una función síncrona:
-function create(req, res) {
+//Crear usuario
+const createUser = async (req, res) => {
     let params = buildParams(validParams, req.body);
-
-    User.create(params).then(user => {
-        res.json(user);
-    }).catch(err => {
-        console.log(err);
-    });
-}
+    try {
+        let usuario=await userSchema.create(params);
+        console.log(usuario);
+        res.send(usuario);
+    } catch (error) {
+        console.log(error);
+    }
+};
 
 //module.exports={create}
-export { create };
+export { createUser };
