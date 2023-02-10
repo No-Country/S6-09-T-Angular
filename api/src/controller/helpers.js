@@ -1,5 +1,5 @@
 //servirá para todos los controladores
-function builParams(validParams, body) {
+function buildParams(validParams, body) {
     let params = {};
 
     validParams.forEach(attr => {
@@ -9,4 +9,4 @@ function builParams(validParams, body) {
     return params;
 }
 
-export default {builParams };
+export { buildParams };
