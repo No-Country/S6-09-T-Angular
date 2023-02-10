@@ -1,7 +1,7 @@
 import express from "express"
 import bodyParser from "body-parser" // body parser middleware
 import cors from "cors" //enable cors
-import session from "express-session" // session middleware on the server side
+//import session from "express-session" // session middleware on the server side
 import classSchema from "../models/classSchema.js"
 
 const app = express()
@@ -11,14 +11,14 @@ app.use(bodyParser.json())
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.use(
+/*app.use(
     session({
         secret: process.env.DB_CONNECTION,
         resave: true,
         saveUninitialized: true,
         cookie: { secure: false },
     })
-)
+)*/
 
 // Create new classroom
 app.post("/classroom", async (req, res) => {
