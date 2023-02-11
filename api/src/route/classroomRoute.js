@@ -1,30 +1,18 @@
 import express from "express";
 import classSchema from "../models/classSchema.js";
-import { deleted, getClassRoom } from "../controller/classroom.js";
+import { createClassRoom, getClassRoom, getallClassRoom, deleteClassRoom } from "../controller/classroom.js";
 const app = express();
 
 // Create new classroom
-app.post("/classroom", async (req, res) => {
-  const user = classSchema(req.body);
-  user
-    .save()
-    .then((data) => res.json(data))
-    .catch((error) => res.json({ message: error }));
-});
+app.post("/create", createClassRoom);
 
 // Get all user classrooms
-app.get("/classroom/:id", (req, res) => {
-  const { id } = req.params;
-  classSchema
-    .find({ user_id: id })
-    .then((data) => res.json(data))
-    .catch((error) => res.json({ message: error }));
-});
+app.get("/classroom/:id", getClassRoom);
 
 // Get all classrooms
-app.get("/all", getClassRoom);
+app.get("/all", getallClassRoom);
 
 // Delete an user classroom
-app.delete("/delete/:id", deleted);
+app.delete("/delete/:id", deleteClassRoom);
 
 export default app;
