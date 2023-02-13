@@ -4,20 +4,24 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
     <title>Chat</title>
   </head>
   <body>
+    
     <h1>chat online</h1>
-
-    <ul></ul>
-    <form action="">
+    <ul class="mensaje"></ul>
+    <form class="chat">
+      
       <input type="text" id="nombre" />Nombre <br />
       <input type="text" id="mensaje" />
       <button>Enviar</button>
     </form>
     <br />
     <br />
-    <button id="zumbido">zumbido</button>
+    <div class="zumbidos">
+    <button id="zumbido" >zumbido</button>
+    </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="cliente-chat.js"></script>
     <script src="zumbido.js"></script>

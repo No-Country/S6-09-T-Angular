@@ -1,10 +1,11 @@
 import express from 'express';
 import { createUser } from '../controller/usersController.js';
-
-const app = express();
 import { body, validationResult } from'express-validator'
 import {validationGeneral} from"../validator/validationGeneral.js"
 import { rulesUser } from '../validator/validationUser.js';
+const app = express();
+
+
 //Crear un usuario
 app.post("/",rulesUser,validationGeneral ,createUser); 
 
