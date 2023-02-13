@@ -1,6 +1,6 @@
 import userSchema from '../models/userSchema.js';
 import { buildParams } from './helpers.js';
-//import {sendEmail} from '../helpers/email.js';
+import {enviar} from '../helpers/email.js';
 
 const validParams = ['name', 'email', 'password'];
 //Crear usuario
@@ -9,7 +9,7 @@ const createUser = async (req, res) => {
     console.log(params);
     try {
         let user = await userSchema.create(params);
-        //sendEmail(user,"bienvenida");
+        enviar(user,"bienvenida");
     } catch (error) {
         console.log(error);
     }
