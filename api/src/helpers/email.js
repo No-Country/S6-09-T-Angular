@@ -59,7 +59,7 @@ const enviar = (user, template) => {
     return console.log("No se a seleccionado ningun template");
   }
   let transport = nodemailer.createTransport({
-    host: "smtp.gmail.com",
+    host: "smtp.gmail.com", //Servidor del email.
     post: 465,
     secure: false,
     auth: {
