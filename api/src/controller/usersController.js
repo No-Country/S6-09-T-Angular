@@ -1,22 +1,20 @@
 import userSchema from '../models/userSchema.js';
 import { buildParams } from './helpers.js';
-import {enviar} from '../helpers/email.js';
+import { enviar } from '../helpers/email.js';
 
 
 const validParams = ['name', 'email', 'password'];
 //Crear usuario
-const createUser = async (req, res) => {
-    
+const createUser = async (req, res, next) => {
+
     let params = buildParams(validParams, req.body);
-    console.log(params);
-
-
     try {
         let user = await userSchema.create(params);
-        user.password=undefined
-        res.send(user)
-        enviar(user,"bienvenida");
-        res.send("Usuario registrado exitosamente.")
+        req.user = user; //Se guarda el objeto user en req para que los siguientes middlewares puedan usuarlo
+        //user.password = undefined; //para que no se muestre la contraseña
+        enviar(user, "bienvenida");
+        //res.send("Usuario registrado exitosamente.")
+        next();
     } catch (error) {
         console.log(error);
     }
