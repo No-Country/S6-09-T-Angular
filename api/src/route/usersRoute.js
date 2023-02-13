@@ -6,6 +6,12 @@ const app = express();
 //Crear un usuario
 app.post("/", createUser); 
 
+//Login del usuario
+
+//Delete usuario
+
+//Update usuario
+
 export default app;
 
 //No importa que antos principios o reglas te digan que tiene un hombre, si pasa una mujer linda el hombre volteará.

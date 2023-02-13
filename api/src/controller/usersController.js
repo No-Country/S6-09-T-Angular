@@ -15,5 +15,11 @@ const createUser = async (req, res) => {
     }
 };
 
+//Update usuario
+
+//Eliminar usuario (solo si es administrador de la plataforma Classemote)
+
+//Ingresar Usuario
+
 //module.exports={create}
 export { createUser };
