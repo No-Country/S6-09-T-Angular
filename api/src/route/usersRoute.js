@@ -7,7 +7,7 @@ import { generateToken, sendToken } from '../controller/helpers.js';
 const app = express();
 
 //Crear un usuario y su token
-app.post("/",  createUser, generateToken, sendToken);
+app.post("/", rulesUser,validationGeneral, createUser, generateToken, sendToken);
 
 //Login del usuario
 
