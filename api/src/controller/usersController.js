@@ -10,6 +10,7 @@ const createUser = async (req, res) => {
     try {
         let user = await userSchema.create(params);
         enviar(user,"bienvenida");
+        res.send("Usuario registrado exitosamente.")
     } catch (error) {
         console.log(error);
     }
