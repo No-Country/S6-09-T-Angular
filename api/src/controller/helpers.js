@@ -14,12 +14,12 @@ function buildParams(validParams, body) {
 //Para la lógica de generación de tokens:
 function generateToken(req, res, next) {
     if (!req.user) return next();
-    
+
     req.token = jwt.sign({ id: req.user._id }, process.env.jwtSecret);
     next();
 }
 
-function sendToken(req,res) {
+function sendToken(req, res) {
     if (req.user) {
         res.json({
             user: req.user.name,
