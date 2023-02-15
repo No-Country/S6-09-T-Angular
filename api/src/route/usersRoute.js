@@ -1,13 +1,12 @@
-import express from 'express';
-import { createUser } from '../controller/usersController.js';
-import { validationGeneral } from "../validator/validationGeneral.js"
-import { rulesUser } from '../validator/validationUser.js';
-import { generateToken, sendToken } from '../controller/helpers.js';
+import express from "express";
+import { createUser } from "../controller/usersController.js";
+import { validationGeneral } from "../validator/validationGeneral.js";
+import { rulesUser } from "../validator/validationUser.js";
 
 const app = express();
 
 //Crear un usuario y su token
-app.post("/", rulesUser,validationGeneral, createUser, generateToken, sendToken);
+app.post("/", rulesUser, validationGeneral, createUser);
 
 //Login del usuario
 

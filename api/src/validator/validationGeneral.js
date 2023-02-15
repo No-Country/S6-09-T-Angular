@@ -1,12 +1,12 @@
-import { body, validationResult } from'express-validator'
+import { body, validationResult } from "express-validator";
 
-const validationGeneral=(req,res)=>{
-
+const validationGeneral = (req, res, next) => {
   // Finds the validation errors in this request and wraps them in an object with handy functions
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
-}
-}
+  }
+  next();
+};
 
-export {validationGeneral}
+export { validationGeneral };
