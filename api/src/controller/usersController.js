@@ -5,10 +5,10 @@ import { generateToken } from "../helpers/userToken.js";
 //Crear usuario
 const createUser = async (req, res) => {
   let { name, password, email } = req.body;
-
+  console.log(password);
   try {
     let user = new userSchema({ name, password, email });
-
+    user.save();
     let token = generateToken(user);
     user.password = undefined;
     let userData = {
