@@ -10,6 +10,7 @@ io.on("connection", (socket) => {
   socket.emit("usuarios-conectados",connectedUsers)
   //Eventos en escucha
   socket.on("chat",(user)=>{
+
     io.emit("mensaje",user)//para emitir a todos los que estan a la escucha es necesario usar io
   })
   
