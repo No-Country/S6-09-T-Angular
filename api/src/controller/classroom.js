@@ -12,6 +12,7 @@ const createClassRoom = async (req, res) => {
 const getClassRoom = async (req, res) => {
   try {
     const { id } = req.params;
+    console.log(id);
     classSchema.find({ user_id: id }).then((data) => res.json(data));
   } catch (error) {
     console.log(error.message);
@@ -19,9 +20,11 @@ const getClassRoom = async (req, res) => {
 };
 
 const getallClassRoom = async (req, res) => {
+  
   try {
+    
     let user = await classSchema.find();
-
+    
     res.send(user);
   } catch (error) {
     console.log(error.message);
@@ -40,4 +43,23 @@ const deleteClassRoom = async (req, res) => {
   }
 };
 
-export { createClassRoom, getClassRoom, getallClassRoom, deleteClassRoom };
+const updateClassRoom = async (req, res) => {
+  try {
+    const {id}=req.params
+    console.log(id);
+    const {message}=req.body
+    console.log(message);
+    const user = await classSchema.findByIdAndUpdate(
+      {
+        _id: id,
+      },
+      { $push: { users: message } }
+    );
+    res.send("Mensaje enviado")
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+
+export { createClassRoom, getClassRoom, getallClassRoom, deleteClassRoom,updateClassRoom };

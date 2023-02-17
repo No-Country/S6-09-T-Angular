@@ -16,14 +16,14 @@ const classSchema = mongoose.Schema({
     type: String,
     required: false
   },
-  users: {
+  users: [{
     type: String,
     required: false
-  },
-  other : {
+  }],
+  other :[{ 
     type: String,
     required: false
-  }
+  }]
 })
 
 //classSchema.plugin(passportLocalMongoose)

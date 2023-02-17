@@ -34,7 +34,7 @@ const createUser = async (req, res) => {
 
 //trae usuarios
 const getUsers=async(req,res)=>{
-  let users=await userSchema.find({})
+  let users=await userSchema.find({}).select("-password")
   
   res.send(users)
 }
@@ -42,12 +42,11 @@ const getUsers=async(req,res)=>{
 const getUser=async(req,res)=>{
   try{
   let {id}=req.params
-  let user=await userSchema.findById({_id:id})
+  console.log("hola");
+  let user=await userSchema.findById({_id:id}).select("-password")
   if(!user){
    return res.send({message:"Usuario no existe"})
   }
-  user.password=undefined
-
   
   res.send(user)
 }catch(error){
@@ -74,7 +73,7 @@ res.send(user)
     console.log(error.message);
   }
 }
-//Eliminar usuario (solo si es administrador de la plataforma Classemote)
+
 const deleteUser=async(req,res)=>{
   try{
   let {id}=req.params

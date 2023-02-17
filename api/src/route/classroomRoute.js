@@ -1,6 +1,6 @@
 import express from "express";
 import classSchema from "../models/classSchema.js";
-import { createClassRoom, getClassRoom, getallClassRoom, deleteClassRoom } from "../controller/classroom.js";
+import { createClassRoom, getClassRoom, getallClassRoom, deleteClassRoom, updateClassRoom } from "../controller/classroom.js";
 const app = express();
 
 // Create new classroom
@@ -13,6 +13,6 @@ app.get("/classroom/:id", getClassRoom);
 app.get("/all", getallClassRoom);
 
 // Delete an user classroom
-app.delete("/delete/:id", deleteClassRoom);
+app.patch("/update/:id", updateClassRoom);
 
 export default app;

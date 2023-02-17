@@ -1,8 +1,10 @@
 import userSchema from "../models/userSchema.js";
 import { generateToken } from "../helpers/userToken.js";
 import bcrypt from "bcrypt";
+import e from "express";
 const authenticate = async (req, res) => {
   let { password, email } = req.body;
+  {}
   try {
     let user = await userSchema.findOne({ email });
     let valid = await user.verifyPassword(password);
