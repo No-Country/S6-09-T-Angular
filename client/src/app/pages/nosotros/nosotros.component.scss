@@ -1,0 +1,33 @@
+.container{
+    margin-top: 70px;
+}
+
+.textmayor{
+    font-size: 18px;
+}
+
+section{
+    margin-bottom: 80px;
+}
+
+.horizontal-scrollable{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    
+}
+
+.horizontal-scrollable::-webkit-scrollbar {
+    display: none;
+  }
+
+
+
+.card {
+    margin-right: 20px;
+    flex: 0 0 auto;
+  }
+
+ 
