@@ -3,9 +3,9 @@ import dotenv from "dotenv"
 //import passportLocalMongoose from "passport-local-mongoose"
 dotenv.config()
 
-const classSchema = mongoose.Schema({ 
-  user_id: { 
-    type: String, 
+const classSchema = mongoose.Schema({
+  user_id: {
+    type: String,
     required: true
   },
   classroom_name: {
@@ -20,11 +20,19 @@ const classSchema = mongoose.Schema({
     type: String,
     required: false
   }],
-  other :[{ 
-    type: String,
-    required: false
-  }]
-})
+  other: [{
+    user : {
+      type : String,
+    },
+    message: {
+      type: String,
+      required: false
+    },
+    time : { type: Date, default: Date.now, required: false }
+  }],
+},
+  { timestamps: true }
+)
 
 //classSchema.plugin(passportLocalMongoose)
 export default mongoose.model("classSchema", classSchema)
