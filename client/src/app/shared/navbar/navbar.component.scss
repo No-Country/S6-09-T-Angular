@@ -1,0 +1,16 @@
+.logo-menu{
+    margin-top: 400px;
+}
+
+.offcanvas{
+    max-width: 176px;
+}
+
+.nav-link.active{
+    color:white !important;
+}
+
+.navbar-toggler:focus{
+    border-color: transparent !important;
+    box-shadow:  0px 0px transparent inset, 0px 0px 8px transparent !important;
+}

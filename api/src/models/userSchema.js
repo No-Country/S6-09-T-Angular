@@ -1,4 +1,4 @@
-import mongoose from "mongoose"
+import mongoose, { Types } from "mongoose"
 import mongooseBcrypt from "mongoose-bcrypt"
 
 const userSchema = mongoose.Schema({
@@ -10,10 +10,11 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  id_classroom: {
-    type: String,
-    required: false,
+  id_classroom: [{
+    name:String,
+    _id:Types.ObjectId
   }
+  ]
 });
 
 

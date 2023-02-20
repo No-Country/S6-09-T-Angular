@@ -8,6 +8,12 @@ let ul = document.querySelector("ul");
 socket.on("mensaje", (user) => {
   console.log(user);
   ul.innerHTML += ` <h3>${user.nombre}: ${user.msg}<h3/>`;
+  let message={
+    user:user.nombre,
+    message:user.msg,
+    idSala:"63e4142ff937c28492563f2a"
+  }
+  socket.emit("message", message)
 });
 
 //envia el mensaje
