@@ -11,6 +11,8 @@ const io = new SocketIO(server);
 import { coneccionSocket } from "../src/socket/socket.js";
 import connectdb from "./config/db.js";
 import cors from "cors"; //enable cors
+import jwtMiddleware from "express-jwt";
+
 //configuracion de archivos staticos
 app.use(express.static("./src/public"));
 app.use(express.urlencoded({ extended: true }));
