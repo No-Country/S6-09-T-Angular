@@ -2,16 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { ClassRoomComponent } from './class-room/class-room.component';
+//import { ClassRoomComponent } from './class-room/class-room.component';
 
 
 const routes: Routes = [
   {
-    path:'classroom',
-    component:ClassRoomComponent
-  },
-  {
-    path:'home',
+    path:'inicio',
     component:HomePageComponent
   },
   {
@@ -19,8 +15,16 @@ const routes: Routes = [
     component:NosotrosComponent
   },
   {
+    path:'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path:'classroom',
+    loadChildren: () => import('./protected/protected.module').then(m => m.ProtectedModule)
+  },
+  {
     path:'**',
-    redirectTo:'home'
+    redirectTo:'inicio'
   }
 ];
 

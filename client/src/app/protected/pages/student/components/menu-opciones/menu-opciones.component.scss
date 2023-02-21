@@ -1,0 +1,20 @@
+.opciones{
+    margin-top: 10px;
+}
+
+// .nav-item.active{
+//     border
+// }
+
+.nav-link.active{
+    background-color: white !important;
+    color: #18619b !important;
+    border: 2px solid #18619b !important;
+}
+
+
+@media (max-width: 576px) {
+    .opciones{
+        margin-top: 80px;
+    }
+}
