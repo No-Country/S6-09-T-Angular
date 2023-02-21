@@ -11,10 +11,9 @@ const userSchema = mongoose.Schema({
     required: true,
   },
   id_classroom: [{
-    name:String,
-    _id:Types.ObjectId
-  }
-  ]
+    name: String,
+    _id: Types.ObjectId
+  }]
 });
 
 
