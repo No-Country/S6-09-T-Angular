@@ -15,10 +15,11 @@ const port = 3000;
 const server = http.createServer(app);
 const io = new SocketIO(server);
 
-//Config. de express-jwt (todas las peticiones requerirán que se les envíe un token)
+  //Config. de express-jwt (todas las peticiones requerirán que se les envíe un token)
 app.use(expressjwt({ secret: process.env.jwtSecret, algorithms: ["HS256"] }).unless(
   { path: ['/login', '/users'] }) //evita que estas rutas estén protegidas por el token
-);
+)
+
 
 //configuracion de archivos staticos
 app.use(express.static("./src/public"));
