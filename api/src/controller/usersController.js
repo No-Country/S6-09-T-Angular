@@ -7,7 +7,6 @@ import { query } from "express";
 //Crear usuario
 const createUser = async (req, res) => {
   let { name, password, email } = req.body;
-  console.log(password);
   try {
     let userExist=await userSchema.findOne({email})
     //comprobando email para no repetir en base de datos
@@ -42,7 +41,6 @@ const getUsers=async(req,res)=>{
 const getUser=async(req,res)=>{
   try{
   let {id}=req.params
-  console.log("hola");
   let user=await userSchema.findById({_id:id}).select("-password")
   if(!user){
    return res.send({message:"Usuario no existe"})

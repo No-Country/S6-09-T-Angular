@@ -26,7 +26,7 @@ io.on("connection", (socket) => {
   })
 
   socket.on("disconnect",()=>{
-    console.log("el usuaurio se desconecto");
+    console.log("El usuario se desconecto");
     connectedUsers = connectedUsers.filter(userId => userId !== socket.id);
     // enviar la lista de usuarios conectados actualizada a todos los clientes
     io.emit('usuarios-conectados', connectedUsers);
