@@ -17,7 +17,10 @@ const io = new SocketIO(server);
 
 //Config. de express-jwt (todas las peticiones requerirán que se les envíe un token)
 app.use(expressjwt({ secret: process.env.jwtSecret, algorithms: ["HS256"] }).unless(
-  { path: ['/login', '/users'] }) //evita que estas rutas estén protegidas por el token
+  { path: ['/login', '/users', '/'] }), //evita que estas rutas estén protegidas por el token
+   function(err, req, res, next){
+    res.send(err.message);
+   }
 );
 
 //configuracion de archivos staticos
@@ -31,11 +34,6 @@ app.use(cors());
 routerApi(app);
 //conexiones
 coneccionSocket(io, app);
-
-//Controlador de errores global (también funciona para express-jwt, de hecho fué implementado para controlar el error -al ingresar a una ruta sin token- de esta librería)
-app.use((err, req, res, next) => {
-  res.send(err.message);
-});
 
 
 server.listen(port, () => {
