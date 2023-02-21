@@ -4,24 +4,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
     <title>Chat</title>
   </head>
   <body>
+    
     <h1>chat online</h1>
-
-    <ul></ul>
-    <form action="">
+    <ul class="mensaje"></ul>
+    <form class="chat">
+      
       <input type="text" id="nombre" />Nombre <br />
       <input type="text" id="mensaje" />
-      <button>enviar</button>
+      <button>Enviar</button>
     </form>
-
-    <h1>Subir imagenes</h1>
-    <div id="subir">input</div>
-    <input type="file" id="input-file" hidden multiple />
-    <div id="preview"></div>
+    <br />
+    <br />
+    <div class="zumbidos">
+    <button id="zumbido" >zumbido</button>
+    </div>
+    <br>
+    <div>
+      <h1>login</h1>
+      <form action="post" id="login">
+        <label for="">Email</label>
+        <input type="text" name="email" id="name" placeholder="coloca tu nombre"><br>
+        <label for="">password</label>
+        <input type="password" name="password" id="password">
+        <button id="enviar">enviar</button>
+      </form>
+    </div>
+    <div id="salas"></div>
+    <button id="consegui-salas">salas</button>
     <script src="/socket.io/socket.io.js"></script>
     <script src="cliente-chat.js"></script>
-    <script src="subir.js"></script>
+    <script src="zumbido.js"></script>
   </body>
 </html>
