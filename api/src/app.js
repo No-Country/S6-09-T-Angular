@@ -30,8 +30,15 @@ app.use(express.json());
 app.use(cors());
 //rutas de la api
 routerApi(app);
-//conecciones
+//conexiones
 coneccionSocket(io, app);
+
+//Controlador de errores global (también funciona para express-jwt, de hecho fué implementado para controlar el error -al ingresar a una ruta sin token- de esta librería)
+app.use((err, req, res, next) => {
+  res.send(err.message);
+});
+
+
 server.listen(port, () => {
   console.log("Server corriendo en " + port);
 });
