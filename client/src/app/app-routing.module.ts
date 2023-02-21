@@ -6,7 +6,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 
 const routes: Routes = [
   {
-    path:'home',
+    path:'inicio',
     component:HomePageComponent
   },
   {
@@ -14,8 +14,16 @@ const routes: Routes = [
     component:NosotrosComponent
   },
   {
+    path:'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path:'classroom',
+    loadChildren: () => import('./protected/protected.module').then(m => m.ProtectedModule)
+  },
+  {
     path:'**',
-    redirectTo:'home'
+    redirectTo:'inicio'
   }
 ];
 
