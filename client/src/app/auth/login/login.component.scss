@@ -1,0 +1,19 @@
+.lnombre{
+    position: relative;
+}
+
+.lnombre > input{
+    position: relative;
+    font-size: 16px;
+    
+
+}
+
+.lnombre > label{
+position: absolute;
+background: #e8eff5;
+top:-0.7em;
+z-index: 1;
+padding: 0 5px;
+left: 1em;
+}

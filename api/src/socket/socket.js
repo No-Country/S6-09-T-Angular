@@ -19,10 +19,8 @@ export const coneccionSocket = (io, app) => {
       io.emit("mensaje", user); //para emitir a todos los que estan a la escucha es necesario usar io
     });
 
-    socket.on("mensajes", (mensajes) => {});
-
     socket.on("disconnect", () => {
-      console.log("el usuaurio se desconecto");
+      console.log("El usuario se desconecto");
       connectedUsers = connectedUsers.filter((userId) => userId !== socket.id);
       // enviar la lista de usuarios conectados actualizada a todos los clientes
       io.emit("usuarios-conectados", connectedUsers);
