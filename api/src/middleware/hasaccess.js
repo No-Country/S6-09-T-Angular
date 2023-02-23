@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 import userSchema from "../models/userSchema.js";
+
 const hasAccess = async (req, res, next) => {
   try {
     let tokenHeader = req.header("authorization");

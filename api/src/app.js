@@ -15,10 +15,11 @@ const port = 3000;
 const server = http.createServer(app);
 const io = new SocketIO(server);
 
-//Config. de express-jwt (todas las peticiones requerirán que se les envíe un token)
-// app.use(expressjwt({ secret: process.env.jwtSecret, algorithms: ["HS256"] }).unless(
-//   { path: ['/login', '/users',"/"] }) //evita que estas rutas estén protegidas por el token
-// )
+// app.use(
+//   expressjwt({ secret: process.env.jwtSecret, algorithms: ["HS256"] }).unless({
+//     path: ["/login", "/users", "/"],
+//   }) //evita que estas rutas estén protegidas por el token
+// );
 // //Controlador de errores global (también funciona para express-jwt, de hecho fué implementado para controlar el error -al ingresar a una ruta sin token- de esta librería)
 // app.use((err, req, res, next) => {
 //   res.send(err.message);
@@ -34,7 +35,7 @@ app.use(cors());
 //rutas de la api
 routerApi(app);
 //conexiones
-coneccionSocket(app);
+coneccionSocket(io, app);
 
 server.listen(port, () => {
   console.log("Server corriendo en " + port);
