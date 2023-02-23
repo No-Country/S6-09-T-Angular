@@ -1,11 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ClassroomComponent } from './classroom/classroom.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ClassroomComponent } from './pages/classroom/classroom.component';
+import { ChatComponent } from './pages/chat/chat.component';
+
 
 const routes: Routes = [
   {
     path:'',
-    component:ClassroomComponent
+    component:DashboardComponent,
+    children:[
+      {path:'classroom',component:ClassroomComponent},
+      {path:'chat',component:ChatComponent}
+    ]
+
   }
 ];
 

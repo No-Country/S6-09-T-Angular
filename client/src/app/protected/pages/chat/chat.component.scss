@@ -1,0 +1,62 @@
+.contenedor{
+    margin-top: 80px;
+    text-align: center;
+}
+
+.center{
+    display: inline-block;
+}
+
+.right{
+    color:transparent !important;
+}
+
+.imgRedonda{
+    width: 50px;
+    height: 50px;
+    border-radius: 150px;
+    border:1px solid #18619b;
+}
+
+.horizontal-scrollable{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    
+}
+
+.horizontal-scrollable::-webkit-scrollbar {
+    display: none;
+  }
+
+  .userP {
+    margin-right: 15px;
+    flex: 0 0 auto;
+  } 
+  
+  .chatDiv{
+    height: 55vh;
+  }
+
+  .msgEnvio{
+    position: relative;
+  }
+
+  .icon-chat{
+    position: absolute;
+    right: 10px;
+    top:3px
+  }
+
+  input{
+    border: 1px solid transparent;
+    width: 80%;
+    font-size: 15px;
+
+  }
+
+  ::placeholder{
+    color: #18619b;
+  }
