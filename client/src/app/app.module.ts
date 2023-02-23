@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ClassRoomComponent } from "./class-room/class-room.component";
 import { NavbarComponent } from "./shared/navbar/navbar.component";
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
@@ -15,7 +15,6 @@ import { ClassMembersComponent } from './class-room/class-members/class-members.
 @NgModule({
     declarations: [
         AppComponent,
-        ClassRoomComponent,
         NavbarComponent,
         HomePageComponent,
         NosotrosComponent,
@@ -31,6 +30,8 @@ import { ClassMembersComponent } from './class-room/class-members/class-members.
     imports: [
         BrowserModule,
         AppRoutingModule,
+        HttpClientModule
+        
     ]
 })
 export class AppModule { }
