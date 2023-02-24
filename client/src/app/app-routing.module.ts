@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+<<<<<<< HEAD
 import { ClassRoomComponent } from './class-room/class-room.component';
 import { ClassWallComponent } from './class-room/class-wall/class-wall.component';
 import { ClassDeliveriesComponent } from './class-room/class-deliveries/class-deliveries.component';
@@ -25,6 +26,13 @@ const routes: Routes = [
     component:ClassMembersComponent
   },
   {
+=======
+//import { ClassRoomComponent } from './class-room/class-room.component';
+
+
+const routes: Routes = [
+  {
+>>>>>>> 1082f417f758d0b084a51dbd33f6850e235e7b7e
     path:'inicio',
     component:HomePageComponent
   },
@@ -37,7 +45,7 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
-    path:'classroom',
+    path:'dashboard',
     loadChildren: () => import('./protected/protected.module').then(m => m.ProtectedModule)
   },
   {

@@ -3,7 +3,7 @@ import classSchema from "../models/classSchema.js";
 const createClassRoom = async (req, res) => {
   try {
     const user = classSchema(req.body);
-    console.log(user)
+    console.log(user);
     user.save().then((data) => res.json(data));
   } catch (error) {
     console.log(error.message);
@@ -14,9 +14,8 @@ const getClassRoom = async (req, res) => {
   try {
     const { id } = req.params;
     console.log(id);
-    let user = await classSchema.find({ user_id: id })
-    res.send(user)
-
+    let user = await classSchema.find({ user_id: id });
+    res.send(user);
   } catch (error) {
     console.log(error.message);
   }
@@ -46,22 +45,28 @@ const deleteClassRoom = async (req, res) => {
 
 const updateClassRoom = async (req, res) => {
   try {
-    const {id}= req.params
+    const { id } = req.params;
     console.log("ID es: " + id);
-    const message = req.body.message
-    const user_chat = req.body.user_chat
+    const message = req.body.message;
+    const user_chat = req.body.user_chat;
     console.log("User_chat: " + user_chat);
     console.log("Mensaje: " + message);
     const user = await classSchema.findByIdAndUpdate(
       {
         _id: id,
       },
-      { $push: { "other" : {"user": user_chat, "message": message}  }}
+      { $push: { other: { user: user_chat, message: message } } }
     );
-    res.send("Mensaje enviado")
+    res.send("Mensaje enviado");
   } catch (error) {
     console.log(error.message);
   }
 };
 
-export { createClassRoom, getClassRoom, getallClassRoom, deleteClassRoom,updateClassRoom };
+export {
+  createClassRoom,
+  getClassRoom,
+  getallClassRoom,
+  deleteClassRoom,
+  updateClassRoom,
+};
