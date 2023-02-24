@@ -1,0 +1,53 @@
+.row{
+    margin-top: 90px;
+}
+
+.tarjeta{
+    position: relative;
+    width: 160px;
+    height: 160px;
+}
+
+.botonRedondo{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 150px;
+    top:25%;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.botonRedondo > i{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    
+}
+
+.tarjeta > p{
+    position: relative;
+    top:60%;
+    margin: 0 auto;
+    font-weight: bold;
+}
+
+.basura{
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    border-radius: 150px;
+    bottom: 50px;
+    right: 30px;
+}
+
+.basura > i{
+position: absolute;
+top: 5%;
+left: 50%;
+transform: translateX(-50%);
+} 
+
+
