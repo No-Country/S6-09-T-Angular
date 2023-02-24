@@ -42,7 +42,7 @@ const createUser = async (req, res) => {
 const getUsers = async (req, res) => {
   let users = await userSchema.find({}).select("-password");
 
-  res.send(users);
+  res.send({ users: users, valid: ture });
 };
 //traer un usuario
 const getUser = async (req, res) => {
@@ -50,7 +50,7 @@ const getUser = async (req, res) => {
     let { id } = req.params;
     let user = await userSchema.findById({ _id: id }).select("-password");
     if (!user) {
-      return res.send({ message: "Usuario no existe" });
+      return res.send({ message: "Usuario no existe", valid: false });
     }
 
     res.send(user);
