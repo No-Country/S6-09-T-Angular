@@ -1,19 +1,38 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ProtectedRoutingModule } from './protected-routing.module';
-import { ClassroomComponent } from './classroom/classroom.component';
-import { MenuOpcionesComponent } from './pages/student/components/menu-opciones/menu-opciones.component';
+
+import { MenuOpcionesComponent } from './components/menu-opciones/menu-opciones.component';
+import { ClassroomComponent } from './pages/classroom/classroom.component';
+import { ChatComponent } from './pages/chat/chat.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MuroComponent } from './pages/muro/muro.component';
+import { TrabajosComponent } from './pages/trabajos/trabajos.component';
+import { EntregasComponent } from './pages/entregas/entregas.component';
+import { MiembrosComponent } from './pages/miembros/miembros.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
+
 
 
 @NgModule({
   declarations: [
+    DashboardComponent,
     ClassroomComponent,
-    MenuOpcionesComponent
+    MenuOpcionesComponent,
+    ChatComponent,
+    MuroComponent,
+    TrabajosComponent,
+    EntregasComponent,
+    MiembrosComponent,
+    PerfilComponent
   ],
   imports: [
     CommonModule,
-    ProtectedRoutingModule
+    ProtectedRoutingModule,
+    RouterModule,
+    HttpClientModule
   ]
 })
 export class ProtectedModule { }

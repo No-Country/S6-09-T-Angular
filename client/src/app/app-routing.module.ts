@@ -21,8 +21,13 @@ const routes: Routes = [
     component: ClassDeliveriesComponent,
   },
   {
+<<<<<<< HEAD
     path: 'classroom/class-members',
     component: ClassMembersComponent,
+=======
+    path:'dashboard',
+    loadChildren: () => import('./protected/protected.module').then(m => m.ProtectedModule)
+>>>>>>> front_definitivo
   },
   {
     path: 'inicio',

@@ -30,8 +30,8 @@ import { ClassMembersComponent } from './class-room/class-members/class-members.
     imports: [
         BrowserModule,
         AppRoutingModule,
-        HttpClientModule
-        
+        HttpClientModule,
+                
     ]
 })
 export class AppModule { }
