@@ -4,13 +4,14 @@ import bcrypt from "bcrypt";
 import e from "express";
 const authenticate = async (req, res) => {
   let { password, email } = req.body;
-  {}
+
   try {
     let user = await userSchema.findOne({ email });
     let valid = await user.verifyPassword(password);
-    user.password = undefined;
+
     if (valid) {
       let token = generateToken(user);
+      user.password = undefined;
       res.send({ user, token });
     } else {
       res.send({ message: "Credenciales inválidas" });

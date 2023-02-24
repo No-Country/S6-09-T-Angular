@@ -6,6 +6,7 @@ import { query } from "express";
 //Crear usuario
 const createUser = async (req, res) => {
   let { name, password, email } = req.body;
+  console.log(password);
   try {
     let userExist = await userSchema.findOne({ email });
     //comprobando email para no repetir en base de datos
@@ -16,20 +17,24 @@ const createUser = async (req, res) => {
       });
     }
     //creacion del usuario
-    let user = new userSchema({ name, password, email });
-    user.save();
+    let userSave = new userSchema({ name, password, email });
+    userSave.save();
+    userSave = userSave.toObject();
+    delete userSave.password;
+    let token = generateToken(userSave);
 
-    let token = generateToken(user);
-    user.password = undefined;
     let userData = {
-      user: user,
+      user: userSave,
       jwt: token,
     };
     //correo de viendvenida
-    enviar(user, "bienvenida");
-    res.send({ user: userData, valid: true });
+    enviar(userSave, "bienvenida");
+    res.send({
+      user: userData,
+      valid: true,
+    });
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 };
 
