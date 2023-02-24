@@ -7,10 +7,10 @@ import routerApi from "./route/index.js";
 import { coneccionSocket } from "../src/socket/socket.js";
 import connectdb from "./config/db.js";
 import cors from "cors"; //enable cors
-import jwtMiddleware from "express-jwt";
+//import jwtMiddleware from "express-jwt"; //Se iba a usar, pero interfería con el funcionamiento de Socket.io. Podria no interferir si se utiliza en las rutas individuales y no en el app.js
 
 dotenv.config(); //Solo se puso por si las dudas, por si no reconocía el mismo comando en db.js
-const { expressjwt } = jwtMiddleware;
+//const { expressjwt } = jwtMiddleware; 
 const app = express();
 const port = 3000;
 const server = http.createServer(app);
