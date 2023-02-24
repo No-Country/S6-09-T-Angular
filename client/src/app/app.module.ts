@@ -22,8 +22,8 @@ import { FooterComponent } from './shared/footer/footer.component';
     imports: [
         BrowserModule,
         AppRoutingModule,
-        HttpClientModule
-        
+        HttpClientModule,
+                
     ]
 })
 export class AppModule { }
