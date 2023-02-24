@@ -4,7 +4,7 @@ const createClassRoom = async (req, res) => {
   try {
     const user = classSchema(req.body);
     console.log(user);
-    user.save().then((data) => res.json(data));
+    user.save().then((data) => res.json({ class: data, valid: true }));
   } catch (error) {
     console.log(error.message);
   }
@@ -35,7 +35,7 @@ const deleteClassRoom = async (req, res) => {
   const { id } = req.params;
   try {
     let eliminar = await classSchema.findByIdAndDelete({ _id: id });
-    res.send(eliminar);
+    res.send({ eliminado: eliminar, valid: true });
     console.log("Eliminado");
   } catch (error) {
     console.log(error.message);
@@ -57,7 +57,7 @@ const updateClassRoom = async (req, res) => {
       },
       { $push: { other: { user: user_chat, message: message } } }
     );
-    res.send("Mensaje enviado");
+    res.send({ message: "Mensaje enviado", valid: true });
   } catch (error) {
     console.log(error.message);
   }
