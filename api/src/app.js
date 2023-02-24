@@ -9,19 +9,21 @@ import connectdb from "./config/db.js";
 import cors from "cors"; //enable cors
 import jwtMiddleware from "express-jwt";
 
+dotenv.config(); //Solo se puso por si las dudas, por si no reconocía el mismo comando en db.js
 const { expressjwt } = jwtMiddleware;
 const app = express();
 const port = 3000;
 const server = http.createServer(app);
 const io = new SocketIO(server);
 
+
 //Config. de express-jwt (todas las peticiones requerirán que se les envíe un token)
-app.use(expressjwt({ secret: process.env.jwtSecret, algorithms: ["HS256"] }).unless(
+/*app.use(expressjwt({ secret: process.env.jwtSecret, algorithms: ["HS256"] }).unless(
   { path: ['/login', '/users', '/'] }), //evita que estas rutas estén protegidas por el token
    function(err, req, res, next){
     res.send(err.message);
    }
-);
+);*/
 
 //configuracion de archivos staticos
 app.use(express.static("./src/public"));
