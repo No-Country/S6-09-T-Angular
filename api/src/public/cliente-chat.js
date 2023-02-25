@@ -11,7 +11,7 @@ socket.on("mensaje", (user) => {
   let message = {
     user: user.nombre,
     message: user.msg,
-    idSala: "63e5b05024a0d0005a4f9b0c",
+    idSala: "63f026a731c3957a2ba1b5e6",
   };
   socket.emit("message", message);
 });
