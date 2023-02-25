@@ -12,14 +12,13 @@ export class AuthService {
 
   private baseUrl: string = environment.baseUrl;
   private _user!:User;
-
+  
+  
   get usuario(){
     return {...this._user};
   }
 
-
-
-  constructor(private http:HttpClient,
+constructor(private http:HttpClient,
               private router:Router) { }
 
 
@@ -54,7 +53,7 @@ export class AuthService {
               email:resp.user.email,
               valid: true
             }
-                      
+            console.log(this._user);            
           } 
         }),
         map(resp => resp.valid),
