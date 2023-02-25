@@ -9,7 +9,7 @@ import connectdb from "./config/db.js";
 import cors from "cors"; //enable cors
 import jwtMiddleware from "express-jwt";
 
-const { expressjwt } = jwtMiddleware;
+
 const app = express();
 const port = 3000;
 const server = http.createServer(app);
@@ -19,16 +19,6 @@ const io = new SocketIO(server, {
     methods: ["GET", "POST"]
   }
 })
-
-// app.use(
-//   expressjwt({ secret: process.env.jwtSecret, algorithms: ["HS256"] }).unless({
-//     path: ["/login", "/users", "/"],
-//   }) //evita que estas rutas estén protegidas por el token
-// );
-// //Controlador de errores global (también funciona para express-jwt, de hecho fué implementado para controlar el error -al ingresar a una ruta sin token- de esta librería)
-// app.use((err, req, res, next) => {
-//   res.send(err.message);
-// });
 
 //configuracion de archivos staticos
 app.use(express.static("./src/public"));

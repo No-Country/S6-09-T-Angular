@@ -14,7 +14,7 @@ app.post("/create",hasAccess,rulesClass,validationGeneral, createClassRoom);
 app.get("/classroom/:id", getClassRoom);
 
 // Get all classrooms
-app.get("/all", getallClassRoom);
+app.get("/all",hasAccess ,getallClassRoom);
 
 // Update an user classroom
 app.patch("/update/:id", updateClassRoom);

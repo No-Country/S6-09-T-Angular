@@ -1,27 +1,38 @@
-import jwt from "jsonwebtoken";
-import userSchema from "../models/userSchema.js";
-
+import jwt from 'jsonwebtoken';
+import userSchema from "../models/userSchema.js"
 const hasAccess = async (req, res, next) => {
   try {
-    let tokenHeader = req.header("authorization");
+    let tokenHeader = req.header('authorization');
     if (tokenHeader) {
-      let token = tokenHeader.substring("Bearer ".length);
+      let token = tokenHeader.substring('Bearer '.length);
 
-      const user = jwt.verify(token, process.env.jwtSecret);
+      const decoded = jwt.verify(token, process.env.jwtSecret);
+
+      // Verify expiration time of token
+      const now = Math.floor(Date.now() / 1000);
+      const valid = decoded.exp >= now;
+
+      if (!valid) {
+        return res.send({message:'Token expired',valid:false});
+      }
+
       let updateuser = await userSchema.findByIdAndUpdate(
-        { _id: user.id },
-        { online: false }
+        { _id: decoded.id },
+        { online: true }
       );
+    
       next();
     } else {
-      res.send({
-        status:403,
-        valid:false})
+      res.status(403).send({
+        valid: false,
+        message: 'No token provided',
+      });
     }
   } catch (error) {
-    res.send({
-      status:401,
-      valid:false})
+    res.status(401).send({
+      valid: false,
+      message: error.message,
+    });
   }
 };
 

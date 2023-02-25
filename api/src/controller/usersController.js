@@ -6,7 +6,11 @@ import { query } from "express";
 //Crear usuario
 const createUser = async (req, res) => {
   let { name, password, email } = req.body;
-  console.log(password);
+  let nameMin=name.toLowerCase()
+  let passwordMin=password.toLowerCase()
+  emailMin=email.toLowerCase()
+
+  console.log(nameMin,passwordMin, emailMin);
   try {
     let userExist = await userSchema.findOne({ email });
     //comprobando email para no repetir en base de datos
@@ -17,7 +21,7 @@ const createUser = async (req, res) => {
       });
     }
     //creacion del usuario
-    let userSave = new userSchema({ name, password, email });
+    let userSave = new userSchema({ name:nameMin, password:passwordMin, email:emailMin });
     userSave.save();
     userSave = userSave.toObject();
     delete userSave.password;
