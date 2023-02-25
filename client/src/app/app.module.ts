@@ -10,6 +10,10 @@ import { ClassWallComponent } from './class-room/class-wall/class-wall.component
 import { ClassDeliveriesComponent } from './class-room/class-deliveries/class-deliveries.component';
 import { ClassMembersComponent } from './class-room/class-members/class-members.component';
 import { SharedModule } from './shared/shared.module';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { environment } from 'src/environments/environment';
+
+const config: SocketIoConfig = { url: environment.baseUrl, options: {} };
 
 
 @NgModule({
@@ -27,7 +31,8 @@ import { SharedModule } from './shared/shared.module';
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-        SharedModule
+        SharedModule,
+        SocketIoModule.forRoot(config)
     ],
     })
 export class AppModule { }

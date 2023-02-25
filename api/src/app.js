@@ -13,7 +13,12 @@ const { expressjwt } = jwtMiddleware;
 const app = express();
 const port = 3000;
 const server = http.createServer(app);
-const io = new SocketIO(server);
+const io = new SocketIO(server, {
+  cors: {
+    origin: "http://localhost:4200",
+    methods: ["GET", "POST"]
+  }
+})
 
 // app.use(
 //   expressjwt({ secret: process.env.jwtSecret, algorithms: ["HS256"] }).unless({

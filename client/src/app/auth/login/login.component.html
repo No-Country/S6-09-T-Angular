@@ -12,9 +12,9 @@
               formControlName="email" 
               style="border-color: #18619B;" 
               placeholder="Correo electronico">
-              <small *ngIf="campoNoValido('email')" class="form-text text-danger">
-                valide su email
-              </small>
+              <span *ngIf="campoNoValido('email')" class="form-text text-danger">
+                El email es obligatorio y debe tener el formato respectivo
+              </span>
             </div>
             
             
@@ -24,9 +24,9 @@
               class="form-control bg-transparent py-3 ps-3" 
               formControlName="password" 
               style="border-color: #18619B;">
-              <small *ngIf="campoNoValido('password')" class="form-text text-danger">
+              <span *ngIf="campoNoValido('password')" class="form-text text-danger">
                 La contraseña es obligatoria
-              </small>
+              </span>
             </div>
             
             
