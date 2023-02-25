@@ -7,6 +7,9 @@ const authenticate = async (req, res) => {
   {}
   try {
     let user = await userSchema.findOne({ email });
+    if(!user){
+      return res.send({message:"email no valido", valid:false})
+    }
     let valid = await user.verifyPassword(password);
     user.password = undefined;
     if (valid) {
