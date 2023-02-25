@@ -8,7 +8,7 @@ const createUser = async (req, res) => {
   let { name, password, email } = req.body;
   let nameMin=name.toLowerCase()
   let passwordMin=password.toLowerCase()
-  emailMin=email.toLowerCase()
+  let emailMin=email.toLowerCase()
 
   console.log(nameMin,passwordMin, emailMin);
   try {
