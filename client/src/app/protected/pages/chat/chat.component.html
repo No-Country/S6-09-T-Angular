@@ -36,15 +36,29 @@
 
     <div class="row mx-auto">
         <div class="col-12 chatDiv bg-white rounded shadow">
+            <div id="chat-mensajes">
+                <li class="list-group-item border border-1 border-primary rounded mt-3 p-2">
+                    Mensaje...
+                </li>
+            </div>
         </div>
+        
         <div class="col-12 bg-white shadow mt-1 msgEnvio">
-            <input type="text" class="form-control py-3 text-primary" placeholder="Escribe algo...">
+            <form autocomplete="off"
+              [formGroup]="miFormulario"
+              (ngSubmit)="enviar()">
+            <input type="text" class="form-control py-3 text-primary" 
+            formControlName="mensaje"
+            placeholder="Escribe algo..."
+            autofocus
+            autocomplete="off">
             <div  class="icon-chat">
                 <a href=""><i class="bi bi-ear ms-2" style="font-size: 2rem"></i></a>
-                <a href=""><i class="bi bi-caret-right ms-2" style="font-size: 2rem"></i></a>
+                <a type="submit"><i class="bi bi-caret-right ms-2" style="font-size: 2rem"></i></a>
             </div>
-            
+        </form>
         </div>
+        
     </div>
     
     
