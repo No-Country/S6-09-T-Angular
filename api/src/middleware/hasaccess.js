@@ -14,10 +14,14 @@ const hasAccess = async (req, res, next) => {
       );
       next();
     } else {
-      res.sendStatus(403);
+      res.send({
+        status:403,
+        valid:false})
     }
   } catch (error) {
-    res.sendStatus(401);
+    res.send({
+      status:401,
+      valid:false})
   }
 };
 
