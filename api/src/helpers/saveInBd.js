@@ -1,7 +1,7 @@
 import classSchema from "../models/classSchema.js";
 
 const saveInBd = async (id, message) => {
-  console.log(id, message);
+  console.log(id, message.user);
   try {
     const user = await classSchema.findByIdAndUpdate(
       {

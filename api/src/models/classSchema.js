@@ -25,9 +25,9 @@ const classSchema = mongoose.Schema(
     ],
     other: [
       {
-
+        user:String,
         message: {
-          user: String,
+          
           type: String,
           required: false,
         },
