@@ -8,6 +8,19 @@
     height: 160px;
 }
 
+.botonFav{
+    position:absolute;
+    top: 5%;
+    right: 5%;
+    width: 20px;
+}
+.botonFav > i {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .botonRedondo{
     position: absolute;
     width: 50px;
