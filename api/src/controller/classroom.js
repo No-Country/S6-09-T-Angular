@@ -1,5 +1,6 @@
 import classSchema from "../models/classSchema.js";
-
+import userSchema from "../models/userSchema.js";
+import {enviar} from "../helpers/email.js"
 const createClassRoom = async (req, res) => {
   try {
     const user = classSchema(req.body);
@@ -44,20 +45,19 @@ const deleteClassRoom = async (req, res) => {
 };
 
 const updateClassRoom = async (req, res) => {
+   
   try {
     const { id } = req.params;
-    console.log("ID es: " + id);
-    const message = req.body.message;
-    const user_chat = req.body.user_chat;
-    console.log("User_chat: " + user_chat);
-    console.log("Mensaje: " + message);
-    const user = await classSchema.findByIdAndUpdate(
+    const {idUser}=req.body
+    const clase= await classSchema.findByIdAndUpdate(
       {
         _id: id,
       },
-      { $push: { other: { user: user_chat, message: message } } }
+      { $push: { users: idUser} }
     );
-    res.send({ message: "Mensaje enviado", valid: true });
+    let user=await userSchema.findOne({_id:idUser})
+    enviar(user,"invitacion")
+    res.send({ message: "usuario invitado", valid: true });
   } catch (error) {
     console.log(error.message);
   }
