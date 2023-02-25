@@ -1,0 +1,21 @@
+.classroom-name{
+    background-color: #D9D9D9;
+    margin-top: 10vh;
+}
+.classroom-title{
+    padding-top: 6vh;
+}
+.classroom-wall{
+    justify-content: center;
+    align-items: center;
+}
+.classblock{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    background-color: white;
+    margin: 2vh;
+    height: 100%;
+    flex-wrap: nowrap;
+}

@@ -3,93 +3,103 @@ import { enviar } from "../helpers/email.js";
 import { generateToken } from "../helpers/userToken.js";
 import { query } from "express";
 
-
 //Crear usuario
 const createUser = async (req, res) => {
   let { name, password, email } = req.body;
+  console.log(password);
   try {
-    let userExist=await userSchema.findOne({email})
+    let userExist = await userSchema.findOne({ email });
     //comprobando email para no repetir en base de datos
     if (userExist) {
-      return res.send({message: "El correo electronico ya existe en la base de datos"})
+      return res.send({
+        message: "El correo electronico ya existe en la base de datos",
+        valid: false,
+      });
     }
     //creacion del usuario
-    let user = new userSchema({ name, password, email });
-    user.save();
+    let userSave = new userSchema({ name, password, email });
+    userSave.save();
+    userSave = userSave.toObject();
+    delete userSave.password;
+    let token = generateToken(userSave);
 
-    let token = generateToken(user);
-    user.password = undefined;
     let userData = {
-      user: user,
+      user: userSave,
       jwt: token,
     };
     //correo de viendvenida
-    enviar(user, "bienvenida");
-    res.send(userData);
+    enviar(userSave, "bienvenida");
+    res.send({
+      user: userData,
+      valid: true,
+    });
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 };
 
 //trae usuarios
-const getUsers=async(req,res)=>{
-  let users=await userSchema.find({}).select("-password")
-  
-  res.send(users)
-}
+const getUsers = async (req, res) => {
+  let users = await userSchema.find({}).select("-password");
+
+  res.send({ users: users, valid: ture });
+};
 //traer un usuario
-const getUser=async(req,res)=>{
-  try{
-  let {id}=req.params
-  let user=await userSchema.findById({_id:id}).select("-password")
-  if(!user){
-   return res.send({message:"Usuario no existe"})
+const getUser = async (req, res) => {
+  try {
+    let { id } = req.params;
+    let user = await userSchema.findById({ _id: id }).select("-password");
+    if (!user) {
+      return res.send({ message: "Usuario no existe", valid: false });
+    }
+
+    res.send(user);
+  } catch (error) {
+    console.log(error.message);
   }
-  
-  res.send(user)
-}catch(error){
-  console.log(error.message);
-}
-}
+};
 
 //Update usuario
-const updateUser=async(req,res)=>{
-  try{
-  let {id}=req.params
-   let { name, password, email }=req.body
-   
-const updateUser= await userSchema.findOneAndUpdate({_id:id}, { name, password, email })
+const updateUser = async (req, res) => {
+  try {
+    let { id } = req.params;
+    let { name, password, email } = req.body;
 
-if (!updateUser) {
-  return res.send({message:"El usuario no existe"})
-}
-let user=await userSchema.findById({_id:id})
-user.password=undefined
+    const updateUser = await userSchema.findOneAndUpdate(
+      { _id: id },
+      { name, password, email }
+    );
 
-res.send(user)
-  }catch(error){
+    if (!updateUser) {
+      return res.send({ message: "El usuario no existe" });
+    }
+    let user = await userSchema.findById({ _id: id });
+    user.password = undefined;
+
+    res.send(user);
+  } catch (error) {
     console.log(error.message);
   }
-}
+};
 
-const deleteUser=async(req,res)=>{
-  try{
-  let {id}=req.params
-  
-   let user= await userSchema.findOne({_id:id})
-   
-if (!user) {
-  return res.send({message:"El usuario no existe"})
-}
+const deleteUser = async (req, res) => {
+  try {
+    let { id } = req.params;
 
-const deleteUser= await userSchema.findOneAndDelete({_id:id})
+    let user = await userSchema.findOne({ _id: id });
 
-res.send({message:"Usuario eliminado"})
-  }catch(error){
+    if (!user) {
+      return res.send({ message: "El usuario no existe" });
+    }
+
+    const deleteUser = await userSchema.findOneAndDelete({ _id: id });
+
+    res.send({ message: "Usuario eliminado" });
+  } catch (error) {
     console.log(error.message);
   }
-}
+};
 //Ingresar Usuario
 
 //module.exports={create}
-export { createUser,getUsers, updateUser,deleteUser, getUser };
+export { createUser, getUsers, updateUser, deleteUser, getUser };
