@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { MainComponent } from './main/main.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -12,12 +13,13 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     LoginComponent,
     RegisterComponent,
-    MainComponent
-  ],
+    MainComponent,
+],
   imports: [
     CommonModule,
     AuthRoutingModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    SharedModule
+  ],
 })
 export class AuthModule { }

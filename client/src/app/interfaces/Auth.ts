@@ -1,15 +1,15 @@
 export interface AuthResponse {
-    valid    :boolean;
-    uid?     :string;
-    email?   :string;
-    name?    :string;
-    token?   :string;
-    msg?     :string;
-
-}   
+    user:  User;
+    token: string;
+    valid: boolean;
+}
 
 export interface User {
-    uid:  string;
-    name: string;
-    email:string;
+    _id?:          string;
+    name?:         string;
+    email?:        string;
+    id_classroom?: any[];
+    __v?:          number;
+    valid?:        boolean;
 }
+

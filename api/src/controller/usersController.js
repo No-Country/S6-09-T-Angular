@@ -42,7 +42,7 @@ const createUser = async (req, res) => {
 const getUsers = async (req, res) => {
   let users = await userSchema.find({}).select("-password");
 
-  res.send({ users: users, valid: ture });
+  res.send({ users: users, valid: true });
 };
 //traer un usuario
 const getUser = async (req, res) => {

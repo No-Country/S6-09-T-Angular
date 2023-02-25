@@ -4,26 +4,22 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from "./shared/navbar/navbar.component";
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
-import { FooterComponent } from './shared/footer/footer.component';
 import { ClassWallComponent } from './class-room/class-wall/class-wall.component';
 import { ClassDeliveriesComponent } from './class-room/class-deliveries/class-deliveries.component';
 import { ClassMembersComponent } from './class-room/class-members/class-members.component';
+import { SharedModule } from './shared/shared.module';
+
 
 @NgModule({
     declarations: [
         AppComponent,
-        NavbarComponent,
         HomePageComponent,
         NosotrosComponent,
-        FooterComponent,
         ClassWallComponent,
         ClassDeliveriesComponent,
         ClassMembersComponent,
-
-
     ],
     providers: [],
     bootstrap: [AppComponent],
@@ -31,7 +27,7 @@ import { ClassMembersComponent } from './class-room/class-members/class-members.
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-                
-    ]
-})
+        SharedModule
+    ],
+    })
 export class AppModule { }

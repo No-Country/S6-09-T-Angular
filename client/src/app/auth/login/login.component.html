@@ -4,6 +4,7 @@
         <form autocomplete="off"
               [formGroup]="miFormulario"
               (ngSubmit)="login">
+            
             <div class="mb-3 lnombre">
               <label for="exampleInputEmail1" class="form-label text-primary">Email</label>
               <input type="email" 
@@ -11,32 +12,46 @@
               formControlName="email" 
               style="border-color: #18619B;" 
               placeholder="Correo electronico">
+              <small *ngIf="campoNoValido('email')" class="form-text text-danger">
+                valide su email
+              </small>
             </div>
+            
+            
             <div class="mb-3 lnombre">
               <label for="exampleInputPassword1" class="form-label text-primary">Contraseña</label>
               <input type="password" 
               class="form-control bg-transparent py-3 ps-3" 
               formControlName="password" 
               style="border-color: #18619B;">
+              <small *ngIf="campoNoValido('password')" class="form-text text-danger">
+                La contraseña es obligatoria
+              </small>
             </div>
+            
+            
             <div class="mb-3 form-check">
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
               <label class="form-check-label" for="exampleCheck1" style="color: #18619B;">Recuerdame</label>
             </div>
+            
             <div class="text-center container-sm" >
             <button type="button"
                     class="btn btn-transparent center-block" 
                     style="border: none; color: #18619B;">¿Olvidaste la contraseña?</button>
             </div>
-            <div class="text-center container-sm mt-3 " >
+            
+            <div class="text-center container-sm mt-3">
                 <button type="submit" 
                 class="btn btn-primary"
+                (click)="login()"
                 [disabled]="miFormulario.invalid"  
                 style=" background-color: #18619B; width: 100%;" >Ingresar</button>
-                </div>
-                <div class="text-center container-sm mt-3 " >
+            </div>
+                
+            <div class="text-center container-sm mt-3 " >
                     <a routerLink="/auth/register" type="button" class="btn btn-primary" style=" background-color: #ffff; color: #18619B; width: 100%;" >Crear una Cuenta</a>
-                    </div>
+            </div>
           </form>
     </div>
 

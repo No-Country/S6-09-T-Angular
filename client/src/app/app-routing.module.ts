@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes} from '@angular/router';
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-//import { ClassRoomComponent } from './class-room/class-room.component';
 import { ClassWallComponent } from './class-room/class-wall/class-wall.component';
 import { ClassDeliveriesComponent } from './class-room/class-deliveries/class-deliveries.component';
-import { ClassMembersComponent } from './class-room/class-members/class-members.component';
+import { ValidarTokenGuard } from './guards/validar-token.guard';
 
 const routes: Routes = [
   // {
@@ -24,6 +23,8 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren: () =>
       import('./protected/protected.module').then((m) => m.ProtectedModule),
+      canActivate:[ValidarTokenGuard],
+      canMatch:[ValidarTokenGuard],
   },
   {
     path: 'inicio',

@@ -13,6 +13,7 @@ import { TrabajosComponent } from './pages/trabajos/trabajos.component';
 import { EntregasComponent } from './pages/entregas/entregas.component';
 import { MiembrosComponent } from './pages/miembros/miembros.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -32,7 +33,8 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
     CommonModule,
     ProtectedRoutingModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ]
 })
 export class ProtectedModule { }
