@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClassroomComponent } from './pages/classroom/classroom.component';
 import { ChatComponent } from './pages/chat/chat.component';
-import { MuroComponent } from './pages/muro/muro.component'
+import { MuroComponent } from './pages/muro/muro.component';
+import { TrabajosComponent } from './pages/trabajos/trabajos.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
     children:[
       {path:'classroom',component:ClassroomComponent},
       {path:'chat',component:ChatComponent},
-      {path:'muro',component:MuroComponent}
+      {path:'muro',component:MuroComponent},
+      {path:'trabajos',component:TrabajosComponent}
     ]
 
   }
