@@ -5,7 +5,7 @@ main().catch((err) => console.log(err));
 
 async function main() {
   mongoose.set("strictQuery", false);
-  await mongoose.connect(process.env.DB_CONNECTION, {
+  await mongoose.connect(process.env.DB_CONNECTION, { //Se presenta error si se hace correr con el comando nodemon app.js dentro de la carpeta src, mejor es hacerlo dentro de la carpeta api con el comando npm start
     useNewUrlParser: true, //Este código se añadió por si las dudas para que no aparezca ciertos mensajes de deprecación o algo semejante.
     useUnifiedTopology: true,
   });
