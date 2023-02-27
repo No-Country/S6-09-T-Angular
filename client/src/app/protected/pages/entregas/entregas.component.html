@@ -1,1 +1,50 @@
-<p>entregas works!</p>
+<div class="text-center align-items-center tj" >
+    <div *ngFor="let tarea of tareas" class="mt-4">
+    <button class="btn position-relative text-start" >
+        <div class="row tarjeta">
+            <div class="img col-3">
+                <img class="foto" src="https://uploads-ssl.webflow.com/632a406bba53c60f9ca58a26/635854d746a2984c22275374_22.jpg" alt="" >
+            </div>
+            <div class="col-9" style="display: inline-block;">
+                <h6 class="titulo">{{tarea.nombre}}</h6>
+                <p class="status">{{tarea.status}}</p>
+            </div>
+        </div>
+        <div class="position-absolute top-0 end-0" >
+           <div class="btn-group ">
+            <button class="dropdown dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-three-dots-vertical"></i>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" (click)="detalle = !detalle; entrega= false; mensaje =false">Detalle</a></li>
+                <li><a class="dropdown-item" (click)="entrega = !entrega;  mensaje = false; detalle = false">Entregar</a></li>
+                <li><a class="dropdown-item" (click)="mensaje = !mensaje; detalle=false; entrega=false">Mensajes </a></li>
+              </ul>
+          </div>
+        </div>
+
+    </button>
+    
+        <div class=" detalle " *ngIf="detalle == true" (click)="detalle = !detalle; entrega= false; mensaje =false"> 
+            <p class="mt-1">{{tarea.detalle}}</p>
+        </div>
+
+        <div class="mensaje" *ngIf="mensaje == true" > 
+            <p class="mt-1">{{tarea.mensajes.autor}}</p>
+            <textarea name="" id=""  placeholder="Escribe algo..."></textarea>
+            <button class="btn1">Enviar Mensaje</button>
+            <button class="btn1 ms-3" (click)="mensaje = !mensaje; detalle=false; entrega=false">cerrar</button>
+        </div>
+        
+        <div class="envio" *ngIf="entrega == true" (click)="entrega = !entrega;  mensaje = false; detalle = false">
+                <textarea name="" id="">Escribe algo....</textarea>
+                <div class="text-center mb-2">
+                <button class="btn3"><i class="bi bi-upload"></i></button>
+                <button class="btn3"><i class="bi bi-paperclip"></i></button>
+                <button class="btn3"><i class="bi bi-link"></i></button>
+                <button class="btn3"><i class="bi bi-collection-play"></i></button>
+                </div>
+        </div>
+    
+</div>
+</div>

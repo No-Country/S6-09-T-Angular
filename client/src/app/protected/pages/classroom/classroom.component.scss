@@ -8,6 +8,19 @@
     height: 160px;
 }
 
+.botonFav{
+    position:absolute;
+    top: 5%;
+    right: 5%;
+    width: 20px;
+}
+.botonFav > i {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .botonRedondo{
     position: absolute;
     width: 50px;
@@ -16,7 +29,7 @@
     top:25%;
     left: 50%;
     transform: translateX(-50%);
-
+    border: 1px solid lightgrey
 }
 
 .botonRedondo > i{
@@ -27,11 +40,26 @@
     
 }
 
+.botonRedondo:hover{
+    box-shadow: 0 .5rem 1rem rgba(black, .15);
+}
+
+.botonImg{
+    position: absolute;
+    transform: translateX(-50%); 
+    width:100%;
+    border-radius:150px;
+}
 .tarjeta > p{
     position: relative;
     top:60%;
     margin: 0 auto;
     font-weight: bold;
+}
+.tarjeta > span{
+    position: relative;
+    top: 57%;
+    margin: 0 auto;
 }
 
 .basura{

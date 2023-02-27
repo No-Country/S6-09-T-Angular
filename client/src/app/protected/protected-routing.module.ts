@@ -5,22 +5,20 @@ import { ClassroomComponent } from './pages/classroom/classroom.component';
 import { ChatComponent } from './pages/chat/chat.component';
 import { AddClassroomComponent } from './pages/add-classroom/add-classroom.component';
 
-
 const routes: Routes = [
   {
-    path:'',
-    component:DashboardComponent,
-    children:[
-      {path:'classroom',component:ClassroomComponent},
-      {path:'chat',component:ChatComponent},
-      {path:'agregar-classroom', component:AddClassroomComponent}
-    ]
-
-  }
+    path: '',
+    component: DashboardComponent,
+    children: [
+      { path: 'classroom', component: ClassroomComponent },
+      { path: 'chat', component: ChatComponent },
+      { path: 'agregar-classroom', component: AddClassroomComponent },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class ProtectedRoutingModule { }
+export class ProtectedRoutingModule {}
