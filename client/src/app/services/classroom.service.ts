@@ -10,20 +10,21 @@ import { ClassroomResponse } from '../interfaces/Classroom';
 export class ClassroomService implements OnInit {
 
   private baseUrl: string = environment.baseUrl;
-  
+    
   constructor(private http:HttpClient) { }
 
-  ngOnInit(): void {
-    
-  }
+  
+  ngOnInit(): void {}
 
   getClassroom(){
 
     let data = JSON.parse(localStorage.getItem('data')!);
 
+    let token = data.token;
+
     const headers = new HttpHeaders({
       'Content-Type':'application/json',
-      'Authorization':`Bearer ${data.token}`
+      'Authorization':`Bearer ${token}`
     });
 
     const requestOptions = {headers: headers}; 
