@@ -17,6 +17,10 @@ const classSchema = mongoose.Schema(
       type: String,
       required: false,
     },
+    aula: {
+      type: String,
+      required: false,
+    },
     users: [
       {
         type: String,
@@ -25,9 +29,8 @@ const classSchema = mongoose.Schema(
     ],
     other: [
       {
-        user:String,
+        user: String,
         message: {
-          
           type: String,
           required: false,
         },
