@@ -15,6 +15,7 @@ import { MiembrosComponent } from './pages/miembros/miembros.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddClassroomComponent } from './pages/add-classroom/add-classroom.component';
 
 
 
@@ -28,7 +29,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     TrabajosComponent,
     EntregasComponent,
     MiembrosComponent,
-    PerfilComponent
+    PerfilComponent,
+    AddClassroomComponent
   ],
   imports: [
     CommonModule,

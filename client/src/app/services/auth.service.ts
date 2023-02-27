@@ -28,9 +28,10 @@ constructor(private http:HttpClient,
 
     return this.http.post<AuthResponse>(url,body)
     .pipe(
-      tap(({valid, token}) =>{
-        if( valid ){
-          localStorage.setItem('token', token!)
+      tap(resp => {
+        if( resp.valid ){
+          let data = {'token': resp.token, 'user':resp.user._id}
+          localStorage.setItem('data', JSON.stringify(data));
           }
       }),
       map(resp => resp.valid),
@@ -46,14 +47,9 @@ constructor(private http:HttpClient,
       .pipe(
         tap(resp => {
           if(resp.valid){
-            localStorage.setItem('token',resp.token!)
-            this._user = {
-              _id : resp.user._id,
-              name: resp.user.name,
-              email:resp.user.email,
-              valid: true
-            }
-            console.log(this._user);            
+            let data = {'token': resp.token, 'user':resp.user._id}
+            localStorage.setItem('data', JSON.stringify(data));
+                     
           } 
         }),
         map(resp => resp.valid),
@@ -63,17 +59,29 @@ constructor(private http:HttpClient,
 
 
   logout(){
-    localStorage.removeItem('token');
+    localStorage.removeItem('data');
     this.router.navigateByUrl('inicio');
   }
 
   validarToken(): Observable<boolean> {
-    if(localStorage.getItem('token') !== null){
+    if(localStorage.getItem('data') !== null){
       return of(true);
     }else{
       return of(false);
     }
     
   }
+
+  // buscarUsuario(user:string){
+    
+    
+  //   this._user = {
+  //     _id : resp.user._id,
+  //     name: resp.user.name,
+  //     email:resp.user.email,
+  //     valid: true
+  //   }
+  //   console.log(this._user);   
+  // }
 
 }

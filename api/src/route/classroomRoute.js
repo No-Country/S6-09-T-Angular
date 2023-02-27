@@ -8,7 +8,7 @@ const app = express();
 
 
 // Create new classroom
-app.post("/create",hasAccess,rulesClass,validationGeneral, createClassRoom);
+app.post("/create",hasAccess, rulesClass,validationGeneral, createClassRoom);
 
 // Get all user classrooms
 app.get("/classroom/:id", getClassRoom);
