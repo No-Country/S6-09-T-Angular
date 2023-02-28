@@ -30,7 +30,7 @@ app.get("/all", hasAccess, getallClassRoom);
 
 //invitacion de alumnos
 app.post("/addUser/:id", rulesUserInv, validationGeneral, addUser);
-app.delete("/deleteUser/:id", deleteUser);
+app.delete("/deleteUser/:id", rulesUserInv, validationGeneral, deleteUser);
 // Update an user classroom
 app.patch("/update/:id", updateClassRoom);
 

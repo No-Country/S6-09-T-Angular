@@ -92,13 +92,19 @@ const addUser = async (req, res) => {
 const deleteUser = async (req, res) => {
   let { user } = req.body;
   let { id } = req.params;
-  const clase = await classSchema.findByIdAndUpdate(
-    {
-      _id: id,
-    },
-    { $pull: { users: user } }
-  );
-  res.send({ Valid: true, user: "el usuario fue eliminado de la sala" });
+  try {
+    const clase = await classSchema.findByIdAndUpdate(
+      {
+        _id: id,
+      },
+      { $pull: { users: user } }
+    );
+
+    res.send({ Valid: true, user: "el usuario fue eliminado de la sala" });
+  } catch (error) {
+    console.log(error);
+    res.send({ valid: false, user: "usuario no existe en el aula" });
+  }
 };
 export {
   deleteUser,
