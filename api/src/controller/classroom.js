@@ -1,6 +1,6 @@
 import classSchema from "../models/classSchema.js";
 import userSchema from "../models/userSchema.js";
-import {enviar} from "../helpers/email.js"
+import { enviar } from "../helpers/email.js";
 const createClassRoom = async (req, res) => {
   try {
     const user = classSchema(req.body);
@@ -45,25 +45,64 @@ const deleteClassRoom = async (req, res) => {
 };
 
 const updateClassRoom = async (req, res) => {
-   
   try {
     const { id } = req.params;
-    const {idUser}=req.body
-    const clase= await classSchema.findByIdAndUpdate(
+    const { idUser } = req.body;
+    const clase = await classSchema.findByIdAndUpdate(
       {
         _id: id,
       },
-      { $push: { users: idUser} }
+      { $push: { users: idUser } }
     );
-    let user=await userSchema.findOne({_id:idUser})
-    enviar(user,"invitacion")
+    let user = await userSchema.findOne({ _id: idUser });
+    enviar(user, "invitacion");
     res.send({ message: "usuario invitado", valid: true });
   } catch (error) {
     console.log(error.message);
   }
 };
 
+const addUser = async (req, res) => {
+  let { user } = req.body;
+  let { id } = req.params;
+  try {
+    //Comprueba que el usuario no este en el grupo
+    const valid = await classSchema.findByIdAndUpdate({ _id: id });
+    const exist = valid.users.filter((invitados) => invitados.includes(user));
+    console.log(exist.length);
+    if (exist.length <= 0) {
+      const clase = await classSchema.findByIdAndUpdate(
+        {
+          _id: id,
+        },
+        { $push: { users: user } }
+      );
+      //gestionar correo para el user
+
+      return res.send({ valid: true });
+    }
+
+    res.send({ valid: false, user: "el usuario ya esta en el grupo" });
+  } catch (error) {
+    console.log(error.message);
+    res.send({ valid: false, user: "No se puede invitar al usuario" });
+  }
+};
+
+const deleteUser = async (req, res) => {
+  let { user } = req.body;
+  let { id } = req.params;
+  const clase = await classSchema.findByIdAndUpdate(
+    {
+      _id: id,
+    },
+    { $pull: { users: user } }
+  );
+  res.send({ Valid: true, user: "el usuario fue eliminado de la sala" });
+};
 export {
+  deleteUser,
+  addUser,
   createClassRoom,
   getClassRoom,
   getallClassRoom,
