@@ -11,13 +11,7 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   private baseUrl: string = environment.baseUrl;
-  private _user!:User;
   
-  
-  get usuario(){
-    return {...this._user};
-  }
-
 constructor(private http:HttpClient,
               private router:Router) { }
 

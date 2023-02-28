@@ -7,17 +7,13 @@ import { AuthService } from './auth.service';
 })
 export class ChatService {
 
-  get usuario(){
-    return this.authService.usuario;
-  }
-
-
+  
   constructor(private wsService:WebSocketService,
               private authService: AuthService) { }
 
   sendMessage(mensaje:string){
     const payload = {
-      user: this.usuario.name,
+      user: 'usuario',
       mensaje,
       idSala: '123456789'
     }

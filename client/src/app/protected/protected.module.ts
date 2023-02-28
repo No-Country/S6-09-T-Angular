@@ -16,6 +16,9 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddClassroomComponent } from './pages/add-classroom/add-classroom.component';
+import { RegresarNombrePipe } from '../pipes/regresar-nombre.pipe';
+
+
 
 
 
@@ -30,7 +33,8 @@ import { AddClassroomComponent } from './pages/add-classroom/add-classroom.compo
     EntregasComponent,
     MiembrosComponent,
     PerfilComponent,
-    AddClassroomComponent
+    AddClassroomComponent,
+    RegresarNombrePipe,
   ],
   imports: [
     CommonModule,

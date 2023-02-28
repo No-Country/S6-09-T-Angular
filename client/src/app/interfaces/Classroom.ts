@@ -8,6 +8,7 @@ export interface ClassroomResponse {
     updatedAt?:         Date;
     category?:          string;
     createdAt?:         Date;
+    valid?:             boolean;
 }
 
 export interface Other {

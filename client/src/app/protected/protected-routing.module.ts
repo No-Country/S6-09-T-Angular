@@ -1,3 +1,4 @@
+import { MuroComponent } from './pages/muro/muro.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
       { path: 'classroom', component: ClassroomComponent },
       { path: 'chat', component: ChatComponent },
       { path: 'agregar-classroom', component: AddClassroomComponent },
+      { path: 'muro/:id', component:MuroComponent}
     ],
   },
 ];

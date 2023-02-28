@@ -7,6 +7,7 @@
         <div class="col-md-6 offset-md-3 col-sm-12">
             <form autocomplete="off"
               [formGroup]="miFormulario"
+              (ngSubmit)="guardar()"
               >
                 <div class="row align-items-start mt-4">
                     <div class="col mb-3 lnombre">
@@ -15,7 +16,7 @@
                         formControlName="classroom_name" 
                         class="form-control bg-transparent py-3 ps-3"
                         style="border-color: #18619B;" autofocus>
-                        <span *ngIf="campoNoValido('name')" class="form-text text-danger">
+                        <span *ngIf="campoNoValido('classroom_name')" class="form-text text-danger float-start">
                             Campo obligatorio
                         </span>
                     </div>
@@ -24,12 +25,12 @@
                 <div class="row align-items-start mt-4">
                     <div class="col mb-3 lnombre">
                         <label for="exampleInputEmail1" class="form-label text-primary" style="color: #18619B;">Matería</label>
-                    <input type="email"
+                    <input type="text"
                     formControlName="category" 
                     class="form-control bg-transparent py-3 ps-3" 
                     style="border-color: #18619B;">
-                    <span *ngIf="campoNoValido('email')" class="form-text text-danger">
-                       Campo obligatorio y debe tener el formato de un email 
+                    <span *ngIf="campoNoValido('category')" class="form-text text-danger float-start">
+                       Campo obligatorio
                     </span>
                     </div>
 
@@ -38,12 +39,12 @@
                 <div class="row align-items-start mt-4">
                     <div class="col mb-3 lnombre">
                         <label for="exampleInputEmail1" class="form-label text-primary" style="color: #18619B;">Aula</label>
-                    <input type="email"
-                    formControlName="email" 
+                    <input type="text"
+                    formControlName="aula" 
                     class="form-control bg-transparent py-3 ps-3" 
                     style="border-color: #18619B;">
-                    <span *ngIf="campoNoValido('email')" class="form-text text-danger">
-                       Campo obligatorio y debe tener el formato de un email 
+                    <span *ngIf="campoNoValido('aula')" class="form-text text-danger float-start">
+                       Campo obligatorio 
                     </span>
                     </div>
 
@@ -52,7 +53,8 @@
                 
                     <div class="row align-items-center " style="margin-top: 50px;">
                         <div class="col-md-6 mb-3">
-                            <button type="submit" 
+                            <button type="submit"
+                            (click)="guardar()" 
                             [disabled]="miFormulario.invalid"
                             class="btn" style="color: #ffff; background-color: #18619B; width: 100%;">Aceptar</button>
                         </div>

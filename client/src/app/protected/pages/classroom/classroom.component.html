@@ -10,19 +10,19 @@
     >
   </div>
 
-  <div class="col-6 col-md-2">
-    <a href="" class="text-decoration-none">
+  <div class="col-6 col-md-2 mb-3" *ngFor="let classroom of listadoClassrooms">
+    <a [routerLink]="['/dashboard/muro', classroom._id]" class="text-decoration-none">
       <div class="tarjeta bg-white rounded mx-auto">
         <div class="botonFav"><i class="bi bi-star"></i></div>
         <div class="botonRedondo">
           <img
             class="botonImg"
-            src="./../../../../assets/img/profesor1.jfif"
+            src="assets/img/profesor1.jfif"
             alt=""
           />
         </div>
-        <p>Programacion</p>
-        <span>Gustavo Gutierrez</span>
+        <p>{{classroom.classroom_name | titlecase}}</p>
+        <span>{{classroom.user_id! | regresarNombre}}</span>
       </div>
     </a>
   </div>
