@@ -64,7 +64,8 @@
                 style="font-size: 2rem"
               ></i>
             </a>
-            <ul *ngIf="!isLogged"
+            <ul
+              *ngIf="!isLogged"
               class="dropdown-menu dropdown-menu-end"
               aria-labelledby="dropdownMenuButton"
               style="width: 244px"
@@ -87,7 +88,8 @@
               </li>
             </ul>
 
-            <ul *ngIf="isLogged"
+            <ul
+              *ngIf="isLogged"
               class="dropdown-menu dropdown-menu-end"
               aria-labelledby="dropdownMenuButton"
               style="width: 244px"
@@ -95,9 +97,8 @@
               <li class="border-bottom">
                 <a
                   class="dropdown-item text-primary text-center"
-                  routerLink="/dashboard/perfil"
-                  ><small>Perfil</small
-                  ><i class="bi bi-person float-end"></i
+                  routerLink="/perfil"
+                  ><small>Perfil</small><i class="bi bi-person float-end"></i
                 ></a>
               </li>
               <li class="border-bottom">
@@ -117,7 +118,6 @@
                 ></a>
               </li>
             </ul>
-
           </div>
         </span>
       </div>
@@ -161,7 +161,8 @@
             style="font-size: 2rem"
           ></i>
         </a>
-        <ul *ngIf="!isLogged"
+        <ul
+          *ngIf="!isLogged"
           class="dropdown-menu dropdown-menu-end"
           aria-labelledby="dropdownMenuButton"
           style="width: 244px"
@@ -183,36 +184,34 @@
           </li>
         </ul>
 
-        <ul *ngIf="isLogged"
-              class="dropdown-menu dropdown-menu-end"
-              aria-labelledby="dropdownMenuButton"
-              style="width: 244px"
-            >
-              <li class="border-bottom">
-                <a
-                  class="dropdown-item text-primary text-center"
-                  routerLink="/dashboard/perfil"
-                  ><small>Perfil</small
-                  ><i class="bi bi-person float-end"></i
-                ></a>
-              </li>
-              <li class="border-bottom">
-                <a
-                  class="dropdown-item text-primary text-center"
-                  routerLink="/dashboard/classroom"
-                  ><small>Notificaciones</small
-                  ><i class="bi bi-2-circle-fill float-end"></i
-                ></a>
-              </li>
-              <li class="salir">
-                <a
-                  class="dropdown-item text-primary text-center"
-                  (click)="logout()"
-                  ><small>Cerrar sesión</small
-                  ><i class="bi bi-box-arrow-right float-end"></i
-                ></a>
-              </li>
-            </ul>
+        <ul
+          *ngIf="isLogged"
+          class="dropdown-menu dropdown-menu-end"
+          aria-labelledby="dropdownMenuButton"
+          style="width: 244px"
+        >
+          <li class="border-bottom">
+            <a
+              class="dropdown-item text-primary text-center"
+              routerLink="/dashboard/perfil"
+              ><small>Perfil</small><i class="bi bi-person float-end"></i
+            ></a>
+          </li>
+          <li class="border-bottom">
+            <a
+              class="dropdown-item text-primary text-center"
+              routerLink="/dashboard/classroom"
+              ><small>Notificaciones</small
+              ><i class="bi bi-2-circle-fill float-end"></i
+            ></a>
+          </li>
+          <li class="salir">
+            <a class="dropdown-item text-primary text-center" (click)="logout()"
+              ><small>Cerrar sesión</small
+              ><i class="bi bi-box-arrow-right float-end"></i
+            ></a>
+          </li>
+        </ul>
       </div>
 
       <div
