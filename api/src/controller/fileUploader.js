@@ -1,7 +1,8 @@
-import upload from "../middleware/uploadFile.js"
+import upload from "../middleware/uploadFile.js";
 
 const uploadFiles = async (req, res) => {
   try {
+    console.log(req);
     await upload(req, res);
     console.log(req.files);
 
@@ -14,8 +15,6 @@ const uploadFiles = async (req, res) => {
     return res.status(200).send({
       message: "Files have been uploaded.",
     });
-
-    
   } catch (error) {
     console.log(error);
 
@@ -27,7 +26,6 @@ const uploadFiles = async (req, res) => {
     return res.status(500).send({
       message: `Error when trying upload many files: ${error}`,
     });
-
   }
 };
 

@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+import jwt from "jsonwebtoken";
 
 function generateToken(user) {
   if (user) {
@@ -18,4 +18,19 @@ function generateToken(user) {
   }
 }
 
-export { generateToken };
+const resetPasswordToken = (user) => {
+  if (user) {
+    let token = jwt.sign(
+      {
+        id: user._id,
+      },
+      process.env.jwtSecret,
+      {
+        expiresIn: 1800, // 5 hours in seconds
+      }
+    );
+    return token;
+  }
+};
+
+export { resetPasswordToken, generateToken };
