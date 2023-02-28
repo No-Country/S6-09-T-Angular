@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 
-const enviar = (user, template) => {
+const enviar = (user, template, token) => {
   let templates = [
     {
       id: "bienvenida",
@@ -50,10 +50,26 @@ const enviar = (user, template) => {
   </html>
   `,
     },
+    {
+      id: "resetPs",
+      subject: "Recuperacion de passwod ClasseMote", //rellenar con objeto datos
+      text: "Password",
+      html: `
+  <html>
+    <head>
+      <title>hola</title>
+    </head>
+    <body>
+      <p>Hello ${user.name},</p>
+      <p>Has solicitado la recuperacion de tu contraseña; para resetear tu password ingresa en el siguiente link, si no fuiste tu ignora el mensaje</p>
+      <p>${"pagina del fron"}/users/passworReset/${token}</p>
+    </body>
+  </html>
+  `,
+    },
   ];
 
   let datos = templates.filter((dato) => dato.id === template);
-  console.log(datos.length);
 
   if (datos.length == 0) {
     return console.log("No se ha seleccionado ningun template");
