@@ -6,10 +6,14 @@ import {
   getallClassRoom,
   deleteClassRoom,
   updateClassRoom,
+  addUser,
+  deleteUser,
 } from "../controller/classroom.js";
 import { hasAccess } from "../middleware/hasaccess.js";
 import { rulesClass } from "../validator/validatorClassrom.js";
 import { validationGeneral } from "../validator/validationGeneral.js";
+import { rulesUserInv } from "../validator/validateUserInv.js";
+
 const app = express();
 
 import uploadFiles from "../controller/fileUploader.js";
@@ -25,8 +29,8 @@ app.get("/classroom/:id", getClassRoom);
 app.get("/all", hasAccess, getallClassRoom);
 
 //invitacion de alumnos
-app.get("/addUser/:id");
-app.get("/deleteUser/id");
+app.post("/addUser/:id", rulesUserInv, validationGeneral, addUser);
+app.delete("/deleteUser/:id", rulesUserInv, validationGeneral, deleteUser);
 // Update an user classroom
 app.patch("/update/:id", updateClassRoom);
 
