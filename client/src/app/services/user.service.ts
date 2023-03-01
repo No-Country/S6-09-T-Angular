@@ -61,7 +61,7 @@ export class UserService {
     }  
 
 updatePassword(password:string,token:string){
-  const url = `${this.baseUrl}/users/passwordUpdate`;
+  const url = `${this.baseUrl}/passwordUpdate`;
   const body = {password,token};
 
   const headers = new HttpHeaders({
@@ -69,9 +69,11 @@ updatePassword(password:string,token:string){
     'Authorization':`Bearer ${token}`
   });
 
-  const requestOptions = {headers: headers};
+  const options = {headers: headers};
+
+  console.log(body);
   
-  return this.http.patch<ResetPasswordResponse>(url, body, requestOptions) 
+  return this.http.patch<ResetPasswordResponse>(url, body, options) 
   .subscribe(resp => {
     if(resp.valid){
       Swal.fire({

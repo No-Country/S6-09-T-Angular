@@ -42,8 +42,8 @@
         <p class="text-center text-primary textmayor"><b>Nuestro equipo <br> s6-09-t-angular</b></p>
 
         <div class="d-flex flex-row-reverse">
-            <div class="p-2"><a href="#"><i class="bi bi-arrow-right-circle text-primary" style="font-size: 2rem"></i></a></div>
-            <div class="p-2"><a href="#"><i class="bi bi-arrow-left-circle text-primary " style="font-size: 2rem"></i></a></div>
+            <div class="p-2 boton" (click)="moverDerecha()"><i class="bi bi-arrow-right-circle text-primary" style="font-size: 2rem"></i></div>
+            <div class="p-2 boton" (click)="moverIzquierda()"><i class="bi bi-arrow-left-circle text-primary " style="font-size: 2rem"></i></div>
         </div>
     <div class="horizontal-scrollable">
         <div class="card rounded shadow" style="width: 200px; height: 300px;" *ngFor="let develop of developers">

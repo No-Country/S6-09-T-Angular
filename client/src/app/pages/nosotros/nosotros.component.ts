@@ -55,4 +55,13 @@ export class NosotrosComponent {
      },
   ]
 
+
+  moverDerecha(){
+
+  }
+
+  moverIzquierda(){
+    
+  }
+
 }
