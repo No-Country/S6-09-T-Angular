@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { RegisterComponent } from './register/register.component';
 import { RecuperarPasswordComponent } from './recuperar-password/recuperar-password.component';
+import { UpdatePasswordComponent } from './update-password/update-password.component';
 
 
 
@@ -23,6 +24,10 @@ const routes: Routes = [
         {
           path:'recuperar-contrasena',
           component:RecuperarPasswordComponent
+        },
+        {
+          path:'actualizar-contrasena/:id',
+          component:UpdatePasswordComponent
         },
         {
           path:'**',
