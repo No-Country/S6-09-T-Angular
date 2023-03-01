@@ -17,6 +17,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddClassroomComponent } from './pages/add-classroom/add-classroom.component';
 import { RegresarNombrePipe } from '../pipes/regresar-nombre.pipe';
+import { BotonChatComponent } from './components/boton-chat/boton-chat.component';
 
 
 
@@ -35,6 +36,7 @@ import { RegresarNombrePipe } from '../pipes/regresar-nombre.pipe';
     PerfilComponent,
     AddClassroomComponent,
     RegresarNombrePipe,
+    BotonChatComponent,
   ],
   imports: [
     CommonModule,

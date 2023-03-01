@@ -22,7 +22,8 @@
           />
         </div>
         <p>{{classroom.classroom_name | titlecase}}</p>
-        <span>{{classroom.user_id! | regresarNombre}}</span>
+        <span>{{classroom.user_id! | regresarNombre | async | titlecase}}</span>
+        
       </div>
     </a>
   </div>

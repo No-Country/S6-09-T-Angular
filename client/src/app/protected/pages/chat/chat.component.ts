@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { WebSocketService } from 'src/app/services/web-socket.service';
 import { ChatService } from '../../../services/chat.service';
@@ -12,6 +12,9 @@ import { ChatService } from '../../../services/chat.service';
 })
 export class ChatComponent implements OnInit {
 
+  idSala!:string;
+  user!: string;
+
   miFormulario:FormGroup = this.fb.group({
   mensaje:['',[]]
     })
@@ -22,14 +25,18 @@ export class ChatComponent implements OnInit {
   constructor(private wsService:WebSocketService,
               private chatService:ChatService,
               private fb:FormBuilder,
-              private router:Router
+              private router:Router,
+              private route:ActivatedRoute
               ){}
 
   ngOnInit(): void {
-    this.chatService.sendMessage('Hola desde angular');
+
+    let data = JSON.parse(localStorage.getItem('data')!);
+    this.idSala = this.route.snapshot.params['id'];
+    this.user = data.user;
+
     this.mensajesSuscription = this.chatService.getMessages().subscribe( msg =>{
-      console.log(msg);
-      this.mensajes.push( msg )
+    this.mensajes.push( msg )
     })
     
   }
@@ -37,9 +44,8 @@ export class ChatComponent implements OnInit {
   enviar(){
     const { mensaje } = this.miFormulario.value;
     // console.log(mensaje);
-    this.chatService.sendMessage(mensaje);
+    this.chatService.sendMessage(mensaje,this.user,this.idSala);
     this.miFormulario.reset();
-    
   }
 
 }

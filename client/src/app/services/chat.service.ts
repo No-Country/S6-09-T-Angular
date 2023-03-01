@@ -11,11 +11,11 @@ export class ChatService {
   constructor(private wsService:WebSocketService,
               private authService: AuthService) { }
 
-  sendMessage(mensaje:string){
+  sendMessage(mensaje:string, user:string, idSala:string){
     const payload = {
-      user: 'usuario',
+      user,
       mensaje,
-      idSala: '123456789'
+      idSala
     }
 
     this.wsService.emit('mensaje',payload);

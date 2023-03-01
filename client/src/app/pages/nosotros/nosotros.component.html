@@ -46,46 +46,11 @@
             <div class="p-2"><a href="#"><i class="bi bi-arrow-left-circle text-primary " style="font-size: 2rem"></i></a></div>
         </div>
     <div class="horizontal-scrollable">
-        <div class="card rounded shadow" style="width: 200px; height: 300px;">
-            <img src="assets/img/fondo-gris.png" class="card-img-top" alt="foto">
+        <div class="card rounded shadow" style="width: 200px; height: 300px;" *ngFor="let develop of developers">
+            <img src="assets/developers/{{develop.img}}" class="card-img-top" alt="foto">
             <div class="card-body">
-              <p class="card-title textmayor"><b>Lorem ipsum</b></p>
-              <p class="card-text" style="font-size: 12px;">Lorem ipsum</p>
-            </div>
-        </div>
-        <div class="card rounded shadow" style="width: 200px; height: 300px;">
-            <img src="assets/img/fondo-gris.png" class="card-img-top" alt="foto">
-            <div class="card-body">
-              <p class="card-title textmayor"><b>Lorem ipsum</b></p>
-              <p class="card-text" style="font-size: 12px;">Lorem ipsum</p>
-            </div>
-        </div>
-        <div class="card rounded shadow" style="width: 200px; height: 300px;">
-            <img src="assets/img/fondo-gris.png" class="card-img-top" alt="foto">
-            <div class="card-body">
-              <p class="card-title textmayor"><b>Lorem ipsum</b></p>
-              <p class="card-text" style="font-size: 12px;">Lorem ipsum</p>
-            </div>
-        </div>
-        <div class="card rounded shadow" style="width: 200px; height: 300px;">
-            <img src="assets/img/fondo-gris.png" class="card-img-top" alt="foto">
-            <div class="card-body">
-              <p class="card-title textmayor"><b>Lorem ipsum</b></p>
-              <p class="card-text" style="font-size: 12px;">Lorem ipsum</p>
-            </div>
-        </div>
-        <div class="card rounded shadow" style="width: 200px; height: 300px;">
-            <img src="assets/img/fondo-gris.png" class="card-img-top" alt="foto">
-            <div class="card-body">
-              <p class="card-title textmayor"><b>Lorem ipsum</b></p>
-              <p class="card-text" style="font-size: 12px;">Lorem ipsum</p>
-            </div>
-        </div>
-        <div class="card rounded shadow" style="width: 200px; height: 300px;">
-            <img src="assets/img/fondo-gris.png" class="card-img-top" alt="foto">
-            <div class="card-body">
-              <p class="card-title textmayor"><b>Lorem ipsum</b></p>
-              <p class="card-text" style="font-size: 12px;">Lorem ipsum</p>
+              <p class="card-title textmayor"><b>{{develop.nombre | titlecase}}</b></p>
+              <p class="card-text" style="font-size: 12px;">{{develop.rol | titlecase}}</p>
             </div>
         </div>
     </div>

@@ -6,6 +6,7 @@ import { RegisterComponent } from './register/register.component';
 import { MainComponent } from './main/main.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { RecuperarPasswordComponent } from './recuperar-password/recuperar-password.component';
 
 
 
@@ -14,6 +15,7 @@ import { SharedModule } from '../shared/shared.module';
     LoginComponent,
     RegisterComponent,
     MainComponent,
+    RecuperarPasswordComponent,
 ],
   imports: [
     CommonModule,

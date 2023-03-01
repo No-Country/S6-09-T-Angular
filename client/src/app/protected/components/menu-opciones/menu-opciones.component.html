@@ -1,16 +1,24 @@
 <div class="mt-4 mb-4">
 <ul class="nav nav-pills justify-content-evenly opciones">
     <li class="nav-item">
-      <a class="nav-link active" href="#">Muro</a>
+      <a class="nav-link"
+         [routerLink]="['/dashboard/muro', idClassroom]"
+         [routerLinkActive]= "['active']">Muro</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Trabajos</a>
+      <a class="nav-link"
+      [routerLink]="['/dashboard/trabajos', idClassroom]"
+      [routerLinkActive]= "['active']">Trabajos</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Entregas</a>
+      <a class="nav-link"
+      [routerLink]="['/dashboard/entregas', idClassroom]"
+      [routerLinkActive]= "['active']">Entregas</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link">Miembros</a>
+      <a class="nav-link"
+      [routerLink]="['/dashboard/miembros', idClassroom]"
+      [routerLinkActive]= "['active']">Miembros</a>
     </li>
   </ul>
 </div>  

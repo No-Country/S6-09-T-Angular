@@ -1,0 +1,16 @@
+.basura{
+    position: fixed;
+    width: 75px;
+    height: 75px;
+    border-radius: 150px;
+    bottom: 50px;
+    right: 30px;
+    bottom: 30px;
+}
+
+.basura > i{
+position: absolute;
+top: 5%;
+left: 50%;
+transform: translateX(-50%);
+} 
