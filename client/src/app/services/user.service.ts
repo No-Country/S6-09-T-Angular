@@ -69,9 +69,11 @@ updatePassword(password:string,token:string){
     'Authorization':`Bearer ${token}`
   });
 
-  const requestOptions = {headers: headers};
+  const options = {headers: headers};
+
+  console.log(body);
   
-  return this.http.patch<ResetPasswordResponse>(url, body, requestOptions) 
+  return this.http.patch<ResetPasswordResponse>(url, body, options) 
   .subscribe(resp => {
     if(resp.valid){
       Swal.fire({
