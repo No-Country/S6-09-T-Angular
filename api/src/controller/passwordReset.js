@@ -15,7 +15,7 @@ const passworReset = async (req, res) => {
     res.send({ valid: false, user: "No existe el usuario" });
   } catch (error) {
     console.log(error.message);
-    res.send({ valid: false, user: "el usuario no existe" });
+    res.send({ valid: false, user: "No existe el usuario" });
   }
 };
 
