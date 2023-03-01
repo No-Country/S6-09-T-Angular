@@ -62,7 +62,7 @@ const enviar = (user, template, token) => {
     <body>
       <p>Hello ${user.name},</p>
       <p>Has solicitado la recuperacion de tu contraseña; para resetear tu password ingresa en el siguiente link, si no fuiste tu ignora el mensaje</p>
-      <p>${"pagina del fron"}/users/passworReset/${token}</p>
+      <p>${process.env.URL_front}/auth/actualizar-contrasena/${token}</p>
     </body>
   </html>
   `,

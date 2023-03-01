@@ -1,5 +1,5 @@
 import express from "express";
-import { passworReset } from "../controller/passwordReset.js";
+import { passworReset, passwordUpdate } from "../controller/passwordReset.js";
 import {
   createUser,
   getUsers,
@@ -21,13 +21,14 @@ app.get("/", getUsers);
 //get usuario
 app.get("/:id", rulesUserupdate, validationGeneral, getUser);
 //Delete usuario
-app.patch("/:id", rulesUserupdate, validationGeneral, updateUser);
+app.patch("/:id", updateUser);
 //Update usuario
 app.delete("/:id", rulesUserupdate, validationGeneral, deleteUser);
 export default app;
 
 //recuperacion de contraseña
 app.post("/passworReset", passworReset);
+
 
 //No importa que antos principios o reglas te digan que tiene un hombre, si pasa una mujer linda el hombre volteará.
 //Atte.: Miguel Guerrero.

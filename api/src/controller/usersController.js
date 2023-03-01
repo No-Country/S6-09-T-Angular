@@ -87,6 +87,7 @@ const updateUser = async (req, res) => {
     res.send(user);
   } catch (error) {
     console.log(error.message);
+    console.log("hola");
   }
 };
 
