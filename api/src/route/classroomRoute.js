@@ -12,7 +12,7 @@ import fileDownload from "../controller/fileDownloader.js";
 // Create new classroom
 app.post("/create",hasAccess,rulesClass,validationGeneral, createClassRoom);
 
-// Get all user classrooms
+// Get specific user classrooms
 app.get("/classroom/:id", getClassRoom);
 
 // Get all classrooms
@@ -23,6 +23,7 @@ app.patch("/update/:id", updateClassRoom);
 
 // Upload and download files
 app.post("/upload", uploadFiles);
-app.get("/download/:name", fileDownload);
+app.get("/download/:id", fileDownload);
+
 
 export default app;

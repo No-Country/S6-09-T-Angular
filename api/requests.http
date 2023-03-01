@@ -1,11 +1,11 @@
 ### post a new user
-POST http://localhost:3000/classroom/create HTTP/1.1
+POST http://localhost:3000/classroom/upload HTTP/1.1
 Accept: application/json
 Content-Type: application/json
 
 {
   "user_id": "34343434",
-  "classroom_name": "ciencias"
+  "filename": "ciencias"
 }
 
 ### get all user classrooms

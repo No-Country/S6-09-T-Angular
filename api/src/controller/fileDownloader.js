@@ -1,41 +1,28 @@
-
-import {MongoClient, GridFSBucket} from "mongodb"
-
-const dbConfig = {
-    url: process.env.DB_CONNECTION,
-    database: "classroom_files_db",
-    fileBucket: "classroomfile",
-  };
-
-const mongoClient = new MongoClient(dbConfig.url);
+import fileSchema from "../models/fileSchema.js";
+import fs from 'fs';
 
 const fileDownload = async (req, res) => {
-    try {
-      await mongoClient.connect();
-  
-      const database = mongoClient.db(dbConfig.database);
-      const bucket = new GridFSBucket(database, {
-        bucketName: dbConfig.fileBucket
-      });
-      console.log("downloading " + req.params.name)
-      let downloadStream = bucket.openDownloadStreamByName(req.params.name);
-  
-      downloadStream.on("data", function (data) {
-        return res.status(200).write(data);
-      });
-  
-      downloadStream.on("error", function (err) {
-        return res.status(404).send({ message: "Cannot download the Image!" });
-      });
-  
-      downloadStream.on("end", () => {
-        return res.end();
-      });
-    } catch (error) {
-      return res.status(500).send({
-        message: error.message,
-      });
-    }
-  };
+  try {
+    const {id}  = req.params;
+    console.log('searching for ' + id);
+    let user = await fileSchema.find({_id: id});
+
+    /// convert base64 to img
+  //   let filename = user[0].filename
+  //   let base64String = user[0].file
+  //   let base64Image = base64String.split(';base64,').pop();
+  //   console.log('downloading '+ filename)
+
+  //   fs.writeFile(filename+'.jpg', base64Image, {encoding: 'base64'}, function(err) {
+  //     console.log('File created');
+  // });
+
+    res.send(user);
+
+  } catch (error) {
+    console.log(error.message);
+    return res.status(500).send("File doesn't exist");
+  }
+};
 
 export default fileDownload;
