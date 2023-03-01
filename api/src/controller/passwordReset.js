@@ -35,7 +35,7 @@ const passwordUpdate=async (req,res)=>{
    return res.send({valid:false, user:"no se pudo cambiar la contraseña"})
    
   }catch(error){
-    console.log(error);
+    console.log(error.message);
     res.send({valid:false, user:"no se pudo cambiar la contraseña"})
   }
 }

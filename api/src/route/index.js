@@ -9,7 +9,7 @@ function routerApi(app) {
   app.use("/api", routeHome);
   app.use("/classroom", classroom);
   app.use("/users", userRoute);
-  app.use("/passworUpdate",routepassworUpdate);
+  app.use("/passwordUpdate",routepassworUpdate);
   app.use("/login", loginRoute);
 }
 
