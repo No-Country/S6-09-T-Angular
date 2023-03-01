@@ -10,19 +10,19 @@ export class ChatService {
   
   constructor(private wsService:WebSocketService,
               private authService: AuthService) { }
-
-  sendMessage(mensaje:string, user:string, idSala:string){
+    //corregido nombre de la variable mensaje
+  sendMessage(message:string, user:string, idSala:string){
     const payload = {
       user,
-      mensaje,
+      message,
       idSala
     }
 
-    this.wsService.emit('mensaje',payload);
+    this.wsService.emit('message',payload);//cambiado nombre de evento mensaje por message
   }
 
   getMessages(){
-    return this.wsService.listen('mensaje-nuevo');
-
+    return this.wsService.listen('message');
+    
   }
 }

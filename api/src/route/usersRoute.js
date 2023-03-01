@@ -24,10 +24,15 @@ app.get("/:id", rulesUserupdate, validationGeneral, getUser);
 app.patch("/:id", updateUser);
 //Update usuario
 app.delete("/:id", rulesUserupdate, validationGeneral, deleteUser);
-export default app;
-
 //recuperacion de contraseña
 app.post("/passworReset", passworReset);
+
+
+
+export default app;
+
+
+
 
 
 //No importa que antos principios o reglas te digan que tiene un hombre, si pasa una mujer linda el hombre volteará.

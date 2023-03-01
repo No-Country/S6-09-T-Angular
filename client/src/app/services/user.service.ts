@@ -61,7 +61,7 @@ export class UserService {
     }  
 
 updatePassword(password:string,token:string){
-  const url = `${this.baseUrl}/users/passwordUpdate`;
+  const url = `${this.baseUrl}/passwordUpdate`;
   const body = {password,token};
 
   const headers = new HttpHeaders({

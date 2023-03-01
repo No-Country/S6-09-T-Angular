@@ -9,6 +9,7 @@ export const coneccionSocket = (io, app) => {
 
     //recepcion para gurdado en bd
     socket.on("message", (message) => {
+      console.log(message);
       saveInBd(message.idSala, message);
       console.log("mensaje guardado");
     });

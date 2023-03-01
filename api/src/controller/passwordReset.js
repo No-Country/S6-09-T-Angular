@@ -21,9 +21,10 @@ const passworReset = async (req, res) => {
 
 const passwordUpdate=async (req,res)=>{
   try{
-  let {token, password}=req.body
-   let decode=jwt.verify(token, process.env.jwtSecret);
-   console.log(decode);
+    console.log(req.body);
+    let {token, password}=req.body
+    let decode=jwt.verify(token, process.env.jwtSecret);
+
    if (decode) {
     const updateUser = await userSchema.findOneAndUpdate(
       { _id: decode.id },
