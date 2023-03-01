@@ -13,3 +13,9 @@ export interface User {
     valid?:        boolean;
 }
 
+export interface ResetPasswordResponse {
+    valid: boolean;
+    user?:  string;
+}
+
+

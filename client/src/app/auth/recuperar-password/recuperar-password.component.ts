@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { tap } from 'rxjs';
 import { ValidatorService } from 'src/app/services/validator.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-recuperar-password',
@@ -15,7 +17,8 @@ export class RecuperarPasswordComponent implements OnInit {
 
 
   constructor(private fb:FormBuilder,
-              private vs:ValidatorService){}
+              private vs:ValidatorService,
+              private userService:UserService){}
 
   ngOnInit(): void {
     
@@ -26,7 +29,12 @@ export class RecuperarPasswordComponent implements OnInit {
     this.miFormulario.get(campo)?.invalid;
   }
 
-  login(){}
+  enviar(){
+    const {email} = this.miFormulario.value;
+    // console.log(email);
+    this.userService.resetPassword(email);
+    
+  }
 
 
 
