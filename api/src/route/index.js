@@ -5,12 +5,14 @@ import classroom from "../route/classroomRoute.js";
 import userRoute from "../route/usersRoute.js";
 import loginRoute from "../route/login.js";
 import routepassworUpdate from "../route/passwordUpdate.js";
+import routeStatus from "../route/status.js"
 function routerApi(app) {
   app.use("/api", routeHome);
   app.use("/classroom", classroom);
   app.use("/users", userRoute);
   app.use("/passwordUpdate",routepassworUpdate);
   app.use("/login", loginRoute);
+  app.use("/status", routeStatus );
 }
 
 export default routerApi;
