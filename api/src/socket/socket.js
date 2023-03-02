@@ -19,12 +19,14 @@ export const coneccionSocket = (io, app) => {
     socket.on("chat", (user) => {
       io.emit("mensaje", user); //para emitir a todos los que estan a la escucha es necesario usar io
     });
-     
+     let usuario=[]
     socket.on("hola", (hola)=>{
+      usuario.push(hola)
       console.log(hola);
     })
     socket.on("disconnect", () => {
       console.log("El usuario se desconecto");
+      console.log(usuario);
       connectedUsers = connectedUsers.filter((userId) => userId !== socket.id);
       // enviar la lista de usuarios conectados actualizada a todos los clientes
       io.emit("usuarios-conectados", connectedUsers);
