@@ -17,7 +17,7 @@ export class WebSocketService {
   constructor(private socket: Socket,
               private userService:UserService){ 
     this.checkStatus();
-    let data = JSON.parse(localStorage.getItem('data')!);
+    let data = JSON.parse(sessionStorage.getItem('data')!);
     this.user = data.user;
     // console.log(this.user);
 

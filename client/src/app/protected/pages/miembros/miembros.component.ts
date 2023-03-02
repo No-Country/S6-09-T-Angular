@@ -19,7 +19,7 @@ export class MiembrosComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    // let data = JSON.parse(localStorage.getItem('data')!);
+    // let data = JSON.parse(sessionStorage.getItem('data')!);
     // this.user = data.user;
 
     // this.chatService.getActiveUsers(this.user).subscribe(resp =>{
