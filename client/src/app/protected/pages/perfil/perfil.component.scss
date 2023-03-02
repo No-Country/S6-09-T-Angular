@@ -19,8 +19,10 @@
 }
 
 .acerca {
+    margin-bottom: 25px;
+    margin-top: 10px;
     background-color: white;
-    max-width: 328px;
+    max-width: 408px;
     max-height: 195px;
     color: #18619b;
     font-size: 15px;
@@ -38,11 +40,14 @@
 .titulos {
     color: #18619b;
     font: 18px;
+    font-weight: bold;
+    line-height: 28px;
 }
 
 .contacto {
+    margin-bottom: 25px;
     //color de las letras
-    max-width: 328px;
+    max-width: 408px;
     max-height: 96px;
     color: #18619b;
     font: 15px;
