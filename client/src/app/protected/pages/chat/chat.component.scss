@@ -36,7 +36,7 @@
     flex: 0 0 auto;
   } 
   
-  .chatDiv{
+  #chatDiv{
     height: 55vh;
     overflow-y: scroll;
   }
@@ -61,3 +61,23 @@
   ::placeholder{
     color: #18619b;
   }
+
+  li{
+    width: 80% !important;
+  }
+
+  .chatPropio{
+    background-color: #18619b !important;
+    color:white !important;
+    float: right !important;
+  }
+
+  .chatAjeno{
+    color: #18619b !important;
+    background-color:white !important;
+    float: left !important;
+  }
+
+  
+  
+  

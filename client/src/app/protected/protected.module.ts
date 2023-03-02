@@ -18,9 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AddClassroomComponent } from './pages/add-classroom/add-classroom.component';
 import { RegresarNombrePipe } from '../pipes/regresar-nombre.pipe';
 import { BotonChatComponent } from './components/boton-chat/boton-chat.component';
-
-
-
+import { RecortarNombrePipe } from '../pipes/recortar-nombre.pipe';
 
 
 @NgModule({
@@ -37,6 +35,7 @@ import { BotonChatComponent } from './components/boton-chat/boton-chat.component
     AddClassroomComponent,
     RegresarNombrePipe,
     BotonChatComponent,
+    RecortarNombrePipe
   ],
   imports: [
     CommonModule,
@@ -44,7 +43,8 @@ import { BotonChatComponent } from './components/boton-chat/boton-chat.component
     RouterModule,
     HttpClientModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ]
 })
 export class ProtectedModule { }

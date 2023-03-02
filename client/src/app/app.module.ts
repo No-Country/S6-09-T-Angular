@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -12,6 +12,9 @@ import { ClassMembersComponent } from './class-room/class-members/class-members.
 import { SharedModule } from './shared/shared.module';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { environment } from 'src/environments/environment';
+import localeEsCO from '@angular/common/locales/es-CO';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData( localeEsCO );
 
 const config: SocketIoConfig = { url: environment.baseUrl, options: {} };
 
@@ -24,8 +27,11 @@ const config: SocketIoConfig = { url: environment.baseUrl, options: {} };
         ClassWallComponent,
         ClassDeliveriesComponent,
         ClassMembersComponent,
+        
     ],
-    providers: [],
+    providers: [
+        { provide: LOCALE_ID, useValue: 'es-CO' }
+    ],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,

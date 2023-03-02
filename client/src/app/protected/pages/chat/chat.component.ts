@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, Pipe } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { pipe, map, Subscription, tap } from 'rxjs';
+import { Message } from 'src/app/interfaces/Classroom';
 import { WebSocketService } from 'src/app/services/web-socket.service';
 import { ChatService } from '../../../services/chat.service';
+import { ClassroomService } from '../../../services/classroom.service';
 
 @Component({
   selector: 'app-chat',
@@ -12,22 +14,36 @@ import { ChatService } from '../../../services/chat.service';
 })
 export class ChatComponent implements OnInit {
 
+  
   idSala!:string;
   user!: string;
 
+  mensajes: Message[] = [];
+  elemento! :HTMLElement;
+  
   miFormulario:FormGroup = this.fb.group({
   mensaje:['',[]]
     })
 
   mensajesSuscription!: Subscription;
-  mensajes : any[] = [];  
-
-  constructor(private wsService:WebSocketService,
-              private chatService:ChatService,
+  
+  constructor(private chatService:ChatService,
+              private classroomService:ClassroomService,
               private fb:FormBuilder,
               private router:Router,
               private route:ActivatedRoute
-              ){}
+              ){
+    
+    this.chatService.getMessage().subscribe(msg =>{
+      this.mensajes.push(msg);
+      this.playAudio();
+      navigator.vibrate(1000);
+    })
+    
+    
+    
+
+              }
 
   ngOnInit(): void {
 
@@ -35,17 +51,52 @@ export class ChatComponent implements OnInit {
     this.idSala = this.route.snapshot.params['id'];
     this.user = data.user;
 
-    this.mensajesSuscription = this.chatService.getMessages().subscribe( msg =>{
-    this.mensajes.push( msg )
-    })
+    this.classroomService.getAllMessages(this.idSala)
+    .subscribe(resp => {
+      this.mensajes = resp[0].other; 
+    });
+
     
+
+    
+  
   }
 
+  
   enviar(){
     const { mensaje } = this.miFormulario.value;
-    // console.log(mensaje);
+
+    if(mensaje == ''){
+      return;
+    }
+
+    const msg = {
+      user:this.user,
+      message:mensaje,
+      _id: this.idSala,
+      time: new Date()
+    }
+
+    
+    this.elemento = document.getElementById('chatDiv')!;
+
+
+    setTimeout(() => {
+       this.elemento.scrollTop = this.elemento?.scrollHeight; 
+    },50)
+
+    
     this.chatService.sendMessage(mensaje,this.user,this.idSala);
     this.miFormulario.reset();
   }
+
+  playAudio() {
+    const audio = new Audio();
+    audio.src = 'assets/audio/1.mp3';
+    audio.load();
+    audio.play();
+    }
+
+    
 
 }
