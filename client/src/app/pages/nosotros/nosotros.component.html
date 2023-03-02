@@ -5,10 +5,11 @@
 
         <p class="text-center text-primary textmayor"><b>Nuestra misión</b></p>
 
-        <img src="assets/img/pngwing 3.png" class="img-fluid mx-auto d-block mb-4" alt="Imagen1">
+        <img src="assets/img/pngwing 3.png" class="img-fluid mx-auto d-block mb-4">
 
-        <p class="text-primary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex esse et ut dignissimos magnam maiores error earum explicabo totam omnis! Beatae doloremque et blanditiis reprehenderit eaque vitae. Enim, fuga facilis?</p>
-
+        <p class="text-primary">Queremos brindar un espacio de trabajo apto para todo público y de acuerdo a las
+            necesidades de cada uno, para que de esa forma puedan desarrollar tanto su aprendizaje como enseñanza, de
+            manera cómoda y donde siempre puedan estar conectados.</p>
 
     </section>
 
@@ -18,51 +19,46 @@
 
         <br>
 
-        <img src="assets/img/cerebro 1.png" class="img-fluid mx-auto d-block mb-4" alt="Imagen1">
+        <img src="assets/img/cerebro 1.png" class="img-fluid mx-auto d-block mb-4">
 
-        <p class="text-primary text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex esse et ut dignissimos magnam maiores error earum explicabo totam omnis! Beatae doloremque et blanditiis reprehenderit eaque vitae. Enim, fuga facilis?</p>
-
-        <br>
-
-        <img src="assets/img/ordenador 1.png" class="img-fluid mx-auto d-block mb-4" alt="Imagen1">
-
-        <p class="text-primary text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex esse et ut dignissimos magnam maiores error earum explicabo totam omnis! Beatae doloremque et blanditiis reprehenderit eaque vitae. Enim, fuga facilis?</p>
+        <p class="text-primary text-center">Un lugar donde puedas aprender lo que quieras. ¡No hay límites en cuanto al aprendizaje y la enseñanza!. </p>
 
         <br>
 
-        <img src="assets/img/clase-virtual 1.png" class="img-fluid mx-auto d-block mb-4" alt="Imagen1">
+        <img src="assets/img/ordenador 1.png" class="img-fluid mx-auto d-block mb-4">
 
-        <p class="text-primary text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex esse et ut dignissimos magnam maiores error earum explicabo totam omnis! Beatae doloremque et blanditiis reprehenderit eaque vitae. Enim, fuga facilis?</p>
+        <p class="text-primary text-center">Chat grupal e individual para estar siempre en contacto con tu grupo sin tener que esperar.</p>
+
+        <br>
+
+        <img src="assets/img/clase-virtual 1.png" class="img-fluid mx-auto d-block mb-4">
+
+        <p class="text-primary text-center">Visualizar la información relevante de manera simple y organizada en tu grupo de estudio.</p>
 
 
     </section>
 
     <section>
 
-        <p class="text-center text-primary textmayor"><b>Nuestro equipo <br> s6-09-t-angular</b></p>
+        <p class="text-center text-primary textmayor"><b>Nuestro equipo <br> (S6-09-T-Angular)</b></p>
 
         <div class="d-flex flex-row-reverse">
-            <div class="p-2 boton" (click)="moverDerecha()"><i class="bi bi-arrow-right-circle text-primary" style="font-size: 2rem"></i></div>
-            <div class="p-2 boton" (click)="moverIzquierda()"><i class="bi bi-arrow-left-circle text-primary " style="font-size: 2rem"></i></div>
+            <div class="p-2 boton" (click)="moverDerecha()"><i class="bi bi-arrow-right-circle text-primary"
+                    style="font-size: 2rem"></i></div>
+            <div class="p-2 boton" (click)="moverIzquierda()"><i class="bi bi-arrow-left-circle text-primary "
+                    style="font-size: 2rem"></i></div>
         </div>
-    <div class="horizontal-scrollable">
-        <div class="card rounded shadow" style="width: 200px; height: 300px;" *ngFor="let develop of developers">
-            <img src="assets/developers/{{develop.img}}" class="card-img-top" alt="foto">
-            <div class="card-body">
-              <p class="card-title textmayor"><b>{{develop.nombre | titlecase}}</b></p>
-              <p class="card-text" style="font-size: 12px;">{{develop.rol | titlecase}}</p>
+        <div class="horizontal-scrollable">
+            <div class="card rounded shadow" style="width: 200px; height: 300px;" *ngFor="let develop of developers">
+                <img src="assets/developers/{{develop.img}}" class="card-img-top" alt="foto">
+                <div class="card-body">
+                    <p class="card-title textmayor"><b>{{develop.nombre | titlecase}}</b></p>
+                    <p class="card-text" style="font-size: 12px;">{{develop.rol | titlecase}}</p>
+                </div>
             </div>
         </div>
-    </div>
-    
-    
-    
-    
-    
     </section>
 
 
 </div>
 <app-footer></app-footer>
-
-
