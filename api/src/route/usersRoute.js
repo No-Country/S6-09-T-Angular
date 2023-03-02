@@ -25,11 +25,12 @@ app.patch("/:id", updateUser);
 //Update usuario
 app.delete("/:id", rulesUserupdate, validationGeneral, deleteUser);
 //recuperacion de contraseña
+export default app;
 app.post("/passworReset", passworReset);
 
 
 
-export default app;
+
 
 
 
