@@ -44,7 +44,7 @@ export class ChatComponent implements OnInit {
 
   ngOnInit(): void {
 
-    let data = JSON.parse(localStorage.getItem('data')!);
+    let data = JSON.parse(sessionStorage.getItem('data')!);
     this.idSala = this.route.snapshot.params['id'];
     this.user = data.user;
 
