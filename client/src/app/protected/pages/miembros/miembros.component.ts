@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService } from 'src/app/services/chat.service';
 import { UserService } from '../../../services/user.service';
-import { AuthResponse, User } from '../../../interfaces/Auth';
+import { AuthResponse, User, UsersResponse } from '../../../interfaces/Auth';
 import { map } from 'rxjs';
 
 @Component({
@@ -28,7 +28,9 @@ export class MiembrosComponent implements OnInit{
       
     // })
 
-   this.userService.getUsers().subscribe(resp => console.log(resp))
+   this.userService.getUsers().subscribe(resp => {
+    this.users = resp.users;
+   })
    
     
    

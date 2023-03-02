@@ -67,16 +67,8 @@ export class ChatComponent implements OnInit {
       return;
     }
 
-    let time = new Date;
+    let time = new Date();
 
-    const msg = {
-      user:this.user,
-      message:mensaje,
-      _id: this.idSala,
-      time: new Date()
-    }
-
-    
     this.elemento = document.getElementById('chatDiv')!;
 
 
