@@ -26,7 +26,7 @@ app.post("/create", createClassRoom);
 app.get("/classroom/:id", getClassRoom);
 
 // Get all classrooms
-app.get("/all", hasAccess, getallClassRoom);
+app.get("/all", getallClassRoom);
 
 //invitacion de alumnos
 app.post("/addUser/:id", rulesUserInv, validationGeneral, addUser);
