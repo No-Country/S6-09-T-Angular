@@ -19,17 +19,9 @@ export class WebSocketService {
     this.checkStatus();
     let data = JSON.parse(sessionStorage.getItem('data')!);
     this.user = data.user;
-    // console.log(this.user);
+    this.obj={id:this.user};
 
-    this.userService.getUser(this.user)
-    .subscribe(resp=>{
-      this.name = resp.name;
-      // console.log(this.name);
-
-    this.obj={id:this.user,name:this.name};
-    // console.log(this.obj);
-        
-    })
+     
   
   }
 
@@ -55,5 +47,7 @@ export class WebSocketService {
   listen(event: string): Observable<any> {
     return this.socket.fromEvent(event);
   }
+
+
   
 }
