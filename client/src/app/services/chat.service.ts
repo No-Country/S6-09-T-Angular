@@ -32,16 +32,16 @@ export class ChatService {
     }
     console.log(payload);
     
-    this.socket.emit('message', payload);
+    this.socket.emit('chat', payload);
   }
 
 
   getActiveUsers(): Observable<any> {
-  return this.wsService.listen('active-users');
+  return this.wsService.listen('usuarios-conectados');
 }
 
 getMessage(): Observable<any> {
-  return this.wsService.listen('new-message');
+  return this.wsService.listen('mensaje');
 }
 
 }

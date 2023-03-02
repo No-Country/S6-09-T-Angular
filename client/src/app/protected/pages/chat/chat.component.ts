@@ -35,7 +35,9 @@ export class ChatComponent implements OnInit {
               ){
     
     this.chatService.getMessage().subscribe(msg =>{
-      console.log(msg)
+      this.mensajes.push(msg);
+      this.playAudio();
+      navigator.vibrate(1000);
     })
     
     
@@ -75,8 +77,7 @@ export class ChatComponent implements OnInit {
       time: new Date()
     }
 
-    this.mensajes.push(msg);
-
+    
     this.elemento = document.getElementById('chatDiv')!;
 
 
@@ -86,8 +87,6 @@ export class ChatComponent implements OnInit {
 
     
     this.chatService.sendMessage(mensaje,this.user,this.idSala);
-    // this.playAudio();
-    // navigator.vibrate(1000);
     this.miFormulario.reset();
   }
 
