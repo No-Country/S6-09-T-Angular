@@ -25,7 +25,7 @@ export class WebSocketService {
 
     this.socket.on('disconnect',() =>{
       console.log('Desconectado del servidor');
-      this.socket.emit('adios', { user: 'Hasta pronto!' });
+      this.socket.emit('adios', { user: this.user });
       this.socketStatus = false;
     })
   }
