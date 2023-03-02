@@ -21,14 +21,16 @@ export const coneccionSocket = (io, app) => {
       io.emit("mensaje", user); //para emitir a todos los que estan a la escucha es necesario usar io
     });
      let usuario=[]
-    socket.on("hola", (hola)=>{
-      hola["ids"]=socket.id
-      usuario.push(hola)
+    socket.on("hola", (obj)=>{
+      console.log(obj);
+      
+      // hola["ids"]=socket.id
+      // usuario.push(hola)
       
     })
     socket.on("disconnect", () => {
       console.log("El usuario se desconecto");
-      changeStatus(usuario[0].id)
+      //changeStatus(usuario[0].id)
       // agregar funcion de cambio estatus online
     });
 
