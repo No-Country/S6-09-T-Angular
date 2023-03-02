@@ -1,7 +1,7 @@
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { ClassroomResponse } from '../interfaces/Classroom';
+import { ClassroomResponse, ChatResponse } from '../interfaces/Classroom';
 import { Observable, tap, map, catchError, of } from 'rxjs';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
@@ -78,6 +78,15 @@ export class ClassroomService implements OnInit {
     
       
   }
+
+
+  getAllMessages(classroom:string) {
+    const url  = `${this.baseUrl}/classroom/classroom/${classroom}`;
+    return this.http.get<ChatResponse>(url);
+    
+      
+  }
+  
 
 
 

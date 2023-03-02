@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +9,10 @@ export class WebSocketService {
 
   public socketStatus = false;
 
-  constructor(private socket: Socket) {
-    this.checkStatus(); 
-   }
+  constructor(private socket: Socket){ this.checkStatus();}
+  
+  checkStatus():void{
 
-  checkStatus(){
-    
     this.socket.on('connect',() =>{
       console.log('conectado al servidor');
       this.socketStatus = true;
@@ -25,17 +24,12 @@ export class WebSocketService {
     })
   }
 
+  emit(event: string, payload?: any, callback?: Function): void {
+    this.socket.emit(event, payload, callback);
+}
 
-  emit(evento:string, payload?:any, callback?: Function ){
-      
-    console.log(payload);
-    
-
-    this.socket.emit(evento, payload, callback);
+  listen(event: string): Observable<any> {
+    return this.socket.fromEvent(event);
   }
   
-  
-  listen(evento:string){
-    return this.socket.fromEvent( evento);
-  }
 }

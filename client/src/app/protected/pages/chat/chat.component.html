@@ -1,5 +1,6 @@
 <div class="container contenedor">
-<div class="left float-start"><a routerLink="/dashboard/classroom"><i class="bi bi-arrow-left text-primary" style="font-size: 2rem"></i></a></div>
+<div class="left float-start"><a [routerLink]="['/dashboard/muro', idSala]"
+    [routerLinkActive]= "['active']"><i class="bi bi-arrow-left text-primary" style="font-size: 2rem"></i></a></div>
 <div class="center"><h1 class="text-primary">Mensajes</h1></div>
 <div class="right float-end"><i class="bi bi-arrow-right" style="font-size: 2rem"></i></div>
 </div>
@@ -35,11 +36,18 @@
     </div>
 
     <div class="row mx-auto">
-        <div class="col-12 chatDiv bg-white rounded shadow">
+        <div class="col-12 bg-white rounded shadow" id="chatDiv">
             <div id="chat-mensajes">
-                <li class="list-group-item border border-1 border-primary rounded mt-3 p-2"
-                    *ngFor="let msg of mensajes">
-                    {{msg}}
+                <li class="list-group-item border border-1 border-primary rounded mt-3 p-2 float-end"
+                    *ngFor="let mensaje of mensajes"
+                    [ngClass]="{'chatPropio':mensaje.user === user,
+                                'chatAjeno':mensaje.user !== user}"
+                    >
+                    <div class="row">
+                        <div class="col-6 float-start"><small><b>{{mensaje.user! | regresarNombre  | async  | titlecase }}</b></small></div>
+                        <div class="col-6 text-end"><small><b>{{mensaje.time | date:'longDate' }}</b></small></div>
+                    </div>
+                    <small>{{mensaje.message}}</small>
                 </li>
             </div>
         </div>
