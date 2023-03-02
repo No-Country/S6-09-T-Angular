@@ -32,8 +32,8 @@ export class ChatService {
   }
 
 
-  getActiveUsers(user:string): Observable<any> {
-    this.socket.emit('usuarios-conectados', user);
+  getActiveUsers(): Observable<any> {
+    this.socket.emit('chat');
     return this.wsService.listen('usuarios-conectados');
   
 }
