@@ -39,9 +39,6 @@ export class ChatComponent implements OnInit {
       this.playAudio();
       navigator.vibrate(1000);
     })
-    
-    
-    
 
               }
 

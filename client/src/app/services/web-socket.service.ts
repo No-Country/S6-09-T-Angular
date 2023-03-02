@@ -12,11 +12,10 @@ export class WebSocketService {
   constructor(private socket: Socket){ this.checkStatus();}
   
   checkStatus():void{
-    let boj={name:"miguel", apellido:"guerrero"}
-    
+    let obj={name:"miguel",guerrero:"guerrero"}
     this.socket.on('connect',() =>{
       console.log('conectado al servidor');
-      this.socket.emit('hola',boj)
+      this.socket.emit('hola', obj)
       this.socketStatus = true;
     })
 
