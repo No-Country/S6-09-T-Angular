@@ -1,5 +1,6 @@
-import {} from "../models/userSchema.js"
+import userSchema from "../models/userSchema.js"
 const changeStatus= async (id)=>{
+  console.log(id);
     let updateuser = await userSchema.findByIdAndUpdate(
         { _id: id },
         { online: false }

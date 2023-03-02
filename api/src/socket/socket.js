@@ -25,12 +25,13 @@ export const coneccionSocket = (io, app) => {
       console.log(obj);
       
       // hola["ids"]=socket.id
-      usuario.push(obj)
+      usuario.push(obj.id)
       
     })
     socket.on("disconnect", () => {
       console.log("El usuario se desconecto");
-      changeStatus(usuario[0].id)
+      console.log(usuario[0]);
+      changeStatus(usuario[0])
       // agregar funcion de cambio estatus online
     });
 
