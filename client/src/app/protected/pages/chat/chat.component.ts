@@ -67,6 +67,8 @@ export class ChatComponent implements OnInit {
       return;
     }
 
+    let time = new Date;
+
     const msg = {
       user:this.user,
       message:mensaje,
@@ -83,7 +85,7 @@ export class ChatComponent implements OnInit {
     },50)
 
     
-    this.chatService.sendMessage(mensaje,this.user,this.idSala);
+    this.chatService.sendMessage(mensaje,this.user,this.idSala,time);
     this.miFormulario.reset();
   }
 
