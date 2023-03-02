@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AuthResponse, User, ResetPasswordResponse } from '../interfaces/Auth';
+import { AuthResponse, User, ResetPasswordResponse, UsersResponse } from '../interfaces/Auth';
 import { environment } from 'src/environments/environment';
 import { catchError, map, Observable, of, tap } from 'rxjs';
 import Swal from 'sweetalert2';
@@ -23,9 +23,9 @@ export class UserService {
               private router:Router) { }
 
 
-  getUsers():Observable<AuthResponse[]>{
+  getUsers():Observable<UsersResponse>{
     const url  = `${this.baseUrl}/users`;
-    return this.http.get<AuthResponse[]>(url);
+    return this.http.get<UsersResponse>(url);
   }
 
   

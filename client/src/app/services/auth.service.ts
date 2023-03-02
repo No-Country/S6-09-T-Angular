@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
+  user!:string;
+
   private baseUrl: string = environment.baseUrl;
   
 constructor(private http:HttpClient,
@@ -53,6 +55,11 @@ constructor(private http:HttpClient,
 
 
   logout(){
+    let data = JSON.parse(sessionStorage.getItem('data')!);
+    this.user = data.user;
+    const url = `${this.baseUrl}/status`;
+    const body = {id:this.user};
+    this.http.post(url, body).subscribe();
     sessionStorage.removeItem('data');
     this.router.navigateByUrl('inicio');
   }

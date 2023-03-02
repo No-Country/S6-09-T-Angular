@@ -17,12 +17,13 @@ export class ChatService {
              
   }
 
-  sendMessage(message:string, user:string, idSala:string) {
+  sendMessage(message:string, user:string, idSala:string,time:Date) {
 
     const payload = {
       user,
       message,
-      idSala
+      idSala,
+      time
     }
     console.log(payload);
 

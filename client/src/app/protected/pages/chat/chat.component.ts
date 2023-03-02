@@ -67,14 +67,8 @@ export class ChatComponent implements OnInit {
       return;
     }
 
-    const msg = {
-      user:this.user,
-      message:mensaje,
-      _id: this.idSala,
-      time: new Date()
-    }
+    let time = new Date();
 
-    
     this.elemento = document.getElementById('chatDiv')!;
 
 
@@ -83,7 +77,7 @@ export class ChatComponent implements OnInit {
     },50)
 
     
-    this.chatService.sendMessage(mensaje,this.user,this.idSala);
+    this.chatService.sendMessage(mensaje,this.user,this.idSala,time);
     this.miFormulario.reset();
   }
 
