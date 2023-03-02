@@ -25,7 +25,7 @@ export class ClassroomService implements OnInit {
   
   getClassroom():Observable<ClassroomResponse[]>{
 
-    let data = JSON.parse(localStorage.getItem('data')!);
+    let data = JSON.parse(sessionStorage.getItem('data')!);
 
     let token = data.token;
 
@@ -45,7 +45,7 @@ export class ClassroomService implements OnInit {
   
   saveClassroom(user_id:string, classroom_name:string, category:string, aula:string){
     
-    let data = JSON.parse(localStorage.getItem('data')!);
+    let data = JSON.parse(sessionStorage.getItem('data')!);
 
     let token = data.token;
 

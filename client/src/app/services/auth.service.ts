@@ -25,7 +25,7 @@ constructor(private http:HttpClient,
       tap(resp => {
         if( resp.valid ){
           let data = {'token': resp.token, 'user':resp.user._id}
-          localStorage.setItem('data', JSON.stringify(data));
+          sessionStorage.setItem('data', JSON.stringify(data));
           }
       }),
       map(resp => resp.valid),
@@ -42,7 +42,7 @@ constructor(private http:HttpClient,
         tap(resp => {
           if(resp.valid){
             let data = {'token': resp.token, 'user':resp.user._id}
-            localStorage.setItem('data', JSON.stringify(data));
+            sessionStorage.setItem('data', JSON.stringify(data));
                      
           } 
         }),
@@ -53,12 +53,12 @@ constructor(private http:HttpClient,
 
 
   logout(){
-    localStorage.removeItem('data');
+    sessionStorage.removeItem('data');
     this.router.navigateByUrl('inicio');
   }
 
   validarToken(): Observable<boolean> {
-    if(localStorage.getItem('data') !== null){
+    if(sessionStorage.getItem('data') !== null){
       return of(true);
     }else{
       return of(false);

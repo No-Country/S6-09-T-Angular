@@ -40,7 +40,7 @@ export class AddClassroomComponent implements OnInit {
 
   guardar(){
 
-    let data = JSON.parse(localStorage.getItem('data')!);
+    let data = JSON.parse(sessionStorage.getItem('data')!);
     let user = data.user;
 
     const {classroom_name, category, aula} = this.miFormulario.value;
