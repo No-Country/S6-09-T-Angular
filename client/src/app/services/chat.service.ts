@@ -14,15 +14,9 @@ export class ChatService {
   constructor(private wsService:WebSocketService,
               private authService: AuthService,
               private socket: Socket) {
-                
-    
-               
+             
   }
 
-
-  
-            
-  
   sendMessage(message:string, user:string, idSala:string) {
 
     const payload = {
@@ -31,13 +25,17 @@ export class ChatService {
       idSala
     }
     console.log(payload);
-    
+
     this.socket.emit('chat', payload);
+    this.socket.emit('message', payload);
+
   }
 
 
-  getActiveUsers(): Observable<any> {
-  return this.wsService.listen('usuarios-conectados');
+  getActiveUsers(user:string): Observable<any> {
+    this.socket.emit('usuarios-conectados', user);
+    return this.wsService.listen('usuarios-conectados');
+  
 }
 
 getMessage(): Observable<any> {

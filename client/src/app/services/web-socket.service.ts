@@ -8,18 +8,24 @@ import { Observable } from 'rxjs';
 export class WebSocketService {
 
   public socketStatus = false;
+  data = JSON.parse(localStorage.getItem('data')!);
+  user = this.data.user;
 
-  constructor(private socket: Socket){ this.checkStatus();}
   
-  checkStatus():void{
+  constructor(private socket: Socket){ 
+  this.checkStatus();
+}
+  
+  checkStatus(){
 
-    this.socket.on('connect',() =>{
+    this.socket.on('connection', () =>{
       console.log('conectado al servidor');
       this.socketStatus = true;
     })
 
     this.socket.on('disconnect',() =>{
       console.log('Desconectado del servidor');
+      this.socket.emit('adios', { user: 'Hasta pronto!' });
       this.socketStatus = false;
     })
   }

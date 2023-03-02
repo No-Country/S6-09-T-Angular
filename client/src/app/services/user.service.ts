@@ -23,9 +23,9 @@ export class UserService {
               private router:Router) { }
 
 
-  getUsers():Observable<User[]>{
+  getUsers():Observable<AuthResponse[]>{
     const url  = `${this.baseUrl}/users`;
-    return this.http.get<User[]>(url);
+    return this.http.get<AuthResponse[]>(url);
   }
 
   
