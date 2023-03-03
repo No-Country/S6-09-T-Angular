@@ -26,4 +26,4 @@ Classemote es tu espacio de enseñanza y aprendizaje, donde puedes vivir la expe
 * José Andrés Gavilanes.
 
 ### Link al proyecto desplegado (deploy) 🔗:
-* https://giftclub.netlify.app/
+*  https://s6-09-t-angular.vercel.app/inicio
