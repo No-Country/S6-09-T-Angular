@@ -1,4 +1,4 @@
-<h1 align = "center">📚 Classemøte 🖥️</h1>
+<h1 align = "center">📚 Classemøte 👨🏽‍💻</h1>
 Un proyecto del equipo:  S6-09-T-ANGULAR.
 
 ## Breve descripción del proyecto 📜
@@ -6,7 +6,7 @@ Un proyecto del equipo:  S6-09-T-ANGULAR.
 Classemote es tu espacio de enseñanza y aprendizaje, donde puedes vivir la experiencia de trabajar junto a tu equipo en tiempo real.
 
 ### Tecnologías 🚀
-* FrontEnd: Angular | HMTL | CSS |
+* FrontEnd: Angular | HMTL | CSS | SCSS |
 * BackEnd: Javascript | Node.js | Express.js | MongoDB |
 * Diseño UX: Figma.
 * Testing: .
