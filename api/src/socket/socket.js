@@ -7,6 +7,9 @@ export const coneccionSocket = (io, app) => {
     console.log("Se conecto el usuario" + " " + socket.id);
     connectedUsers.push(socket.id);
 
+    socket.on("hola", (user) => {
+      console.log(user);
+    });
     //recepcion para gurdado en bd
     socket.on("message", (message) => {
       console.log(message);
@@ -17,10 +20,12 @@ export const coneccionSocket = (io, app) => {
     socket.emit("usuarios-conectados", connectedUsers);
     //Eventos en escucha
     socket.on("chat", (user) => {
+      console.log(user);
       io.emit("mensaje", user); //para emitir a todos los que estan a la escucha es necesario usar io
     });
 
-    socket.on("disconnect", () => {
+    socket.on("disconnect", (user) => {
+      console.log(user);
       console.log("El usuario se desconecto");
       connectedUsers = connectedUsers.filter((userId) => userId !== socket.id);
       // enviar la lista de usuarios conectados actualizada a todos los clientes

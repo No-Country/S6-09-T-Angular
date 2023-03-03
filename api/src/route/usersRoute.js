@@ -17,7 +17,7 @@ const app = express();
 app.post("/", rulesUser, validationGeneral, createUser);
 
 //get allUser
-app.get("/", getUsers);
+app.get("/", rulesUser, validationGeneral, getUsers);
 //get usuario
 app.get("/:id", rulesUserupdate, validationGeneral, getUser);
 //Delete usuario
@@ -27,13 +27,7 @@ app.delete("/:id", rulesUserupdate, validationGeneral, deleteUser);
 //recuperacion de contraseña
 app.post("/passworReset", passworReset);
 
-
-
 export default app;
-
-
-
-
 
 //No importa que antos principios o reglas te digan que tiene un hombre, si pasa una mujer linda el hombre volteará.
 //Atte.: Miguel Guerrero.

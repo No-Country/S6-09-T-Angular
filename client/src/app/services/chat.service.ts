@@ -5,43 +5,32 @@ import { Socket } from 'ngx-socket-io';
 import { Message } from '../interfaces/Classroom';
 import { Observable } from 'rxjs';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ChatService {
+  constructor(
+    private wsService: WebSocketService,
+    private authService: AuthService,
+    private socket: Socket
+  ) {}
 
-  constructor(private wsService:WebSocketService,
-              private authService: AuthService,
-              private socket: Socket) {
-                
-    
-               
-  }
-
-
-  
-            
-  
-  sendMessage(message:string, user:string, idSala:string) {
-
+  sendMessage(message: string, user: string, idSala: string) {
     const payload = {
       user,
       message,
-      idSala
-    }
+      idSala,
+    };
     console.log(payload);
-    
+
     this.socket.emit('chat', payload);
   }
 
-
   getActiveUsers(): Observable<any> {
-  return this.wsService.listen('usuarios-conectados');
-}
+    return this.wsService.listen('usuarios-conectados');
+  }
 
-getMessage(): Observable<any> {
-  return this.wsService.listen('mensaje');
-}
-
+  getMessage(): Observable<any> {
+    return this.wsService.listen('mensaje');
+  }
 }

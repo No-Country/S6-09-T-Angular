@@ -3,33 +3,32 @@ import { Socket } from 'ngx-socket-io';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WebSocketService {
-
   public socketStatus = false;
 
-  constructor(private socket: Socket){ this.checkStatus();}
-  
-  checkStatus():void{
+  constructor(private socket: Socket) {
+    this.checkStatus();
+  }
 
-    this.socket.on('connect',() =>{
+  checkStatus(): void {
+    this.socket.on('connect', () => {
       console.log('conectado al servidor');
       this.socketStatus = true;
-    })
+    });
 
-    this.socket.on('disconnect',() =>{
+    this.socket.on('disconnect', () => {
       console.log('Desconectado del servidor');
       this.socketStatus = false;
-    })
+    });
   }
 
   emit(event: string, payload?: any, callback?: Function): void {
     this.socket.emit(event, payload, callback);
-}
+  }
 
   listen(event: string): Observable<any> {
     return this.socket.fromEvent(event);
   }
-  
 }

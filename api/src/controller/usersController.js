@@ -11,6 +11,7 @@ const createUser = async (req, res) => {
   let emailMin = email.toLowerCase();
 
   console.log(nameMin, passwordMin, emailMin);
+  console.log(nameMin, passwordMin, emailMin);
   try {
     let userExist = await userSchema.findOne({ email });
     //comprobando email para no repetir en base de datos
