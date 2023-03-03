@@ -1,20 +1,29 @@
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
-import { Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
+import { User } from '../interfaces/Auth';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class WebSocketService {
   public socketStatus = false;
+  user!: string;
+  name!: any;
+  obj!: {};
 
-  constructor(private socket: Socket) {
+  constructor(private socket: Socket, private userService: UserService) {
     this.checkStatus();
+    let data = JSON.parse(sessionStorage.getItem('data')!);
+    this.user = data.user;
+    this.obj = { id: this.user };
   }
 
   checkStatus(): void {
     this.socket.on('connect', () => {
       console.log('conectado al servidor');
+      this.socket.emit('hola', this.obj);
       this.socketStatus = true;
     });
 

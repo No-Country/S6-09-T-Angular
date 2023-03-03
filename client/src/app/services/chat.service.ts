@@ -24,9 +24,11 @@ export class ChatService {
     console.log(payload);
 
     this.socket.emit('chat', payload);
+    this.socket.emit('message', payload);
   }
 
   getActiveUsers(): Observable<any> {
+    this.socket.emit('chat');
     return this.wsService.listen('usuarios-conectados');
   }
 

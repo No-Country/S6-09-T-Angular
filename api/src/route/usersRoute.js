@@ -25,9 +25,8 @@ app.patch("/:id", updateUser);
 //Update usuario
 app.delete("/:id", rulesUserupdate, validationGeneral, deleteUser);
 //recuperacion de contraseña
-app.post("/passworReset", passworReset);
-
 export default app;
+app.post("/passworReset", passworReset);
 
 //No importa que antos principios o reglas te digan que tiene un hombre, si pasa una mujer linda el hombre volteará.
 //Atte.: Miguel Guerrero.

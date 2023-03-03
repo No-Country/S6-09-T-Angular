@@ -10,83 +10,61 @@ import { ClassroomService } from '../../../services/classroom.service';
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.scss']
+  styleUrls: ['./chat.component.scss'],
 })
 export class ChatComponent implements OnInit {
-
-  
-  idSala!:string;
+  idSala!: string;
   user!: string;
 
   mensajes: Message[] = [];
-  elemento! :HTMLElement;
-  
-  miFormulario:FormGroup = this.fb.group({
-  mensaje:['',[]]
-    })
+  elemento!: HTMLElement;
+
+  miFormulario: FormGroup = this.fb.group({
+    mensaje: ['', []],
+  });
 
   mensajesSuscription!: Subscription;
-  
-  constructor(private chatService:ChatService,
-              private classroomService:ClassroomService,
-              private fb:FormBuilder,
-              private router:Router,
-              private route:ActivatedRoute
-              ){
-    
-    this.chatService.getMessage().subscribe(msg =>{
+
+  constructor(
+    private chatService: ChatService,
+    private classroomService: ClassroomService,
+    private fb: FormBuilder,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
+    this.chatService.getMessage().subscribe((msg) => {
       this.mensajes.push(msg);
       this.playAudio();
       navigator.vibrate(1000);
-    })
-    
-    
-    
-
-              }
+    });
+  }
 
   ngOnInit(): void {
-
-    let data = JSON.parse(localStorage.getItem('data')!);
+    let data = JSON.parse(sessionStorage.getItem('data')!);
     this.idSala = this.route.snapshot.params['id'];
     this.user = data.user;
 
-    this.classroomService.getAllMessages(this.idSala)
-    .subscribe(resp => {
-      this.mensajes = resp[0].other; 
+    this.classroomService.getAllMessages(this.idSala).subscribe((resp) => {
+      this.mensajes = resp[0].other;
     });
-
-    
-
-    
-  
   }
 
-  
-  enviar(){
+  enviar() {
     const { mensaje } = this.miFormulario.value;
 
-    if(mensaje == ''){
+    if (mensaje == '') {
       return;
     }
 
-    const msg = {
-      user:this.user,
-      message:mensaje,
-      _id: this.idSala,
-      time: new Date()
-    }
+    let time = new Date();
 
-    
     this.elemento = document.getElementById('chatDiv')!;
 
-
     setTimeout(() => {
-       this.elemento.scrollTop = this.elemento?.scrollHeight; 
-    },50)
+      this.elemento.scrollTop = this.elemento?.scrollHeight;
+    }, 50);
 
-    
-    this.chatService.sendMessage(mensaje,this.user,this.idSala);
+    this.chatService.sendMessage(mensaje, this.user, this.idSala);
     this.miFormulario.reset();
   }
 
@@ -95,8 +73,5 @@ export class ChatComponent implements OnInit {
     audio.src = 'assets/audio/1.mp3';
     audio.load();
     audio.play();
-    }
-
-    
-
+  }
 }
