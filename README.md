@@ -3,7 +3,7 @@ Un proyecto del equipo:  S6-09-T-ANGULAR.
 
 ## Breve descripción del proyecto 📜
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Classemote es tu espacio de enseñanza y aprendizaje, donde puedes vivir la experiencia de trabajar junto a tu equipo en tiempo real.
 
 ### Tecnologías 🚀
 * FrontEnd: Angular | HMTL | CSS |
