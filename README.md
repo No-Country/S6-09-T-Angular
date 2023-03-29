@@ -1,5 +1,5 @@
 <h1 align = "center">📚 Classemøte 👨🏽‍💻</h1>
-Un proyecto del equipo:  S6-09-T-ANGULAR.
+<p align = "center">Un proyecto del equipo:  S6-09-T-ANGULAR.</p>
 
 ## Breve descripción del proyecto 📜
 
