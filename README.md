@@ -9,7 +9,7 @@ Classemote es tu espacio de enseñanza y aprendizaje, donde puedes vivir la expe
 * FrontEnd: Angular | HMTL | CSS | SCSS |
 * BackEnd: Javascript | Node.js | Express.js | MongoDB |
 * Diseño UX: Figma.
-* Testing: .
+* Testing: Postman y pruebas manuales.
 
 ### Integrantes 👩🏻‍💻👨🏽‍💻
 * QA Tester: Fausto Centurión | [LinkedIn](https://www.linkedin.com/in/fausto-centuri%C3%B3n-084b46219/)
